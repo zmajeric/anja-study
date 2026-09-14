@@ -27,9 +27,6 @@ Every lesson from L2 on opens with a 3–5 question spaced review of earlier les
 - Ch9: Freddo's convention is fibro**cyte** = active, fibro**blast** = inactive (reverse of many textbooks). Teach Freddo's version.
 
 ## Workspace conventions
-- Attempts pasted from a lesson's "Copy my results" button go in `RECORDS.md`, against that
-  lesson's item map. Missed **concepts** (not item numbers) feed the spaced review; unanswered
-  items are not misses. Clicked-through test runs are recorded but excluded from the queue.
 - Lessons: `lessons/NNNN-slug.html`, link `../assets/course.css` and `../assets/quiz.js`.
 - Reference sheets: `reference/<chapter-slug>.html`; glossary in `reference/glossary.html`, extended every lesson.
 - Quiz answers must have equal word counts (no formatting clues).
