@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image quiz · Identify what is shown</title>
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  .chapters { display: flex; flex-wrap: wrap; gap: .4rem; font-family: var(--sans); margin: 1rem 0 1.5rem; }
+  .chapters button { font: inherit; font-size: .85rem; padding: .35rem .7rem; cursor: pointer; border: 1px solid var(--rule); border-radius: 5px; background: #fdfcf8; }
+  .chapters button.on { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Histology · Picture questions · all chapters</div>
+  <h1>Identify what is shown</h1>
+  <p class="subtitle">Only micrographs — the exam's "identify the cell / tissue shown" format, one chapter at a time or everything mixed.</p>
+
+  <div class="box goal">
+    <div class="label">How to use this</div>
+    <p>Pick a chapter. Look at the picture <em>before</em> the options and say what you see out loud — nucleus shape, colour, layers, what is next to it — then choose. Options reshuffle on every retry. "Everything" draws a random sample across all chapters, which is what the real paper does.</p>
+  </div>
+
+  <div class="chapters" id="chapters"></div>
+  <div id="quiz"></div>
+
+  <div class="box">
+    <div class="label">Done? Send your teacher the evidence</div>
+    <p>Copies this chapter's score. Paste it into the chat.</p>
+    <div id="results"></div>
+  </div>
+
+  <footer>
+    <div><a href="../reference/glossary.html">Glossary</a> · <a href="mock-exam.html">Mock exam</a></div>
+    <div class="nav"><span>Each picture question also appears in its own lesson's mixed quiz.</span></div>
+  </footer>
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/bank.js"></script>
+<script src="../assets/bank/ch1.js"></script>
+<script src="../assets/bank/ch2.js"></script>
+<script src="../assets/bank/ch3.js"></script>
+<script src="../assets/bank/ch5.js"></script>
+<script src="../assets/bank/ch6.js"></script>
+<script src="../assets/bank/ch7.js"></script>
+<script src="../assets/bank/ch8.js"></script>
+<script src="../assets/bank/ch9.js"></script>
+<script>
+(function () {
+  var bar = document.getElementById('chapters');
+  var ids = Bank.ids().filter(function (id) { return (Bank.get(id).images || []).length; });
+  var current = (location.hash || '').replace('#', '') || ids[0];
+  function render(id) {
+    current = id;
+    Array.prototype.forEach.call(bar.children, function (b) { b.classList.toggle('on', b.dataset.id === id); });
+    var items = id === 'all' ? Bank.sample('images', 3) : Bank.get(id).images;
+    Quiz.mcq('#quiz', items, { key: 'IMG:' + id + ':mcq' });
+    Quiz.results('#results', 'IMG:' + id);
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+  }
+  ids.forEach(function (id) {
+    var b = document.createElement('button'); b.dataset.id = id;
+    b.textContent = id.replace('ch', 'Ch. ') + ' — ' + Bank.get(id).title + ' (' + Bank.get(id).images.length + ')';
+    b.onclick = function () { render(id); }; bar.appendChild(b);
+  });
+  var all = document.createElement('button'); all.dataset.id = 'all'; all.textContent = 'Everything, mixed';
+  all.onclick = function () { render('all'); }; bar.appendChild(all);
+  render(ids.indexOf(current) >= 0 || current === 'all' ? current : ids[0]);
+})();
+</script>
+</body>
+</html>

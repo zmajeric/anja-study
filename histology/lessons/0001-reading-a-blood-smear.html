@@ -126,7 +126,7 @@
   </ul>
 
   <h2>6. Drill — MCQ</h2>
-  <p>Immediate feedback; options reshuffle on retry. Aim for 13/13 before moving on.</p>
+  <p>Immediate feedback; options reshuffle on retry. Aim for 13/13 before moving on. Then the <a href="../quizzes/images.html#ch1">image quiz for Chapter 1</a> — twelve micrographs, "identify the cell shown", the sample exam's format.</p>
   <div id="mcq"></div>
 
   <h2>7. Drill — write it (the 10% written part)</h2>
@@ -149,81 +149,18 @@
   </div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a></div>
+    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch1">Image quiz — Chapter 1</a></div>
     <div class="nav"><span>← (first lesson)</span><a href="0002-hematopoiesis-growth-factors-epo.html">Next: 0002 — Hematopoiesis, growth factors, EPO →</a></div>
   </footer>
 </main>
 
 <script src="../assets/quiz.js"></script>
+<script src="../assets/bank.js"></script>
+<script src="../assets/bank/ch1.js"></script>
 <script>
-Quiz.mcq('#mcq', [
-  { q: 'Which formed element is anucleate, biconcave and filled with hemoglobin?',
-    options: ['Platelet', 'Erythrocyte', 'Neutrophil', 'Lymphocyte'], answer: 1,
-    why: 'Erythrocytes have no nucleus, are biconcave discs of 7.2 microns and contain hemoglobin. Platelets are also anucleate but are 2–3 micron fragments.',
-    cite: 'Script · Ch. 1 · Erythrocytes' },
-  { q: 'A pink cell with no nucleus shows blue strands and dots in its cytoplasm. What is it?',
-    options: ['A reticulocyte', 'A lymphocyte', 'A platelet', 'An erythrocyte'], answer: 0,
-    why: 'Reticulocytes are immature red cells that still carry RNA-containing organelles; the RNA binds the basic blue dye.',
-    cite: 'Script · Ch. 1 · Reticulocytes' },
-  { q: 'Which stain is preferred when a systemic microbial disease is suspected?',
-    options: ['Wright stain', 'Giemsa stain', 'Silver stain', 'Trichrome stain'], answer: 1,
-    why: 'Giemsa adds Azure B to eosin and methylene blue and is preferred if a systemic microbial disease is suspected. Wright is for routine smears.',
-    cite: 'Script · Ch. 1 · Stains for Blood Smears' },
-  { q: 'Which leukocyte is the most numerous in a normal differential count?',
-    options: ['Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil'], answer: 0,
-    why: 'Neutrophils are 60–70% (detail section: 50–70%). Lymphocytes are second.',
-    cite: 'Script · Ch. 1 · White Blood Cells — Overview' },
-  { q: 'Which leukocyte has large purple granules that often hide its nucleus?',
-    options: ['Basophil', 'Eosinophil', 'Neutrophil', 'Monocyte'], answer: 0,
-    why: 'Basophil granules stain deep blue to purple and are so numerous they mask the bilobed nucleus. They contain histamine and heparin.',
-    cite: 'Script · Ch. 1 · The Basophil' },
-  { q: 'Which leukocyte is the largest, with a U- or kidney-shaped nucleus?',
-    options: ['Monocyte', 'Lymphocyte', 'Neutrophil', 'Basophil'], answer: 0,
-    why: 'The monocyte is the largest leukocyte, agranular, with abundant pale-blue cytoplasm; it leaves the blood to become a macrophage.',
-    cite: 'Script · Ch. 1 · The Monocyte' },
-  { q: 'A smear shows an unusually high proportion of horseshoe-shaped nuclei. The script calls this:',
-    options: ['A left shift', 'A right shift', 'A staining artefact', 'A viral infection'], answer: 0,
-    why: 'Horseshoe nuclei are band neutrophils. An increase is a "left shift" — the marrow releasing more WBCs, usually infection or inflammation.',
-    cite: 'Script · Ch. 1 · Band neutrophils — Clinical note' },
-  { q: 'Which platelet structure stores serotonin and Ca++?',
-    options: ['Alpha granules', 'Delta granules', 'Lambda granules', 'Marginal band'], answer: 1,
-    why: 'δ-granules (dense bodies) store serotonin and Ca++. α-granules hold proteoglycans and hemostasis factors; λ-granules are lysosomes; the marginal band is microtubules.',
-    cite: 'Script · Ch. 1 · Internal structure of the platelet' },
-  { q: 'Eosinophil granules are especially effective against which target?',
-    options: ['Parasitic worms', 'Viral particles', 'Bacterial cells', 'Tumour cells'], answer: 0,
-    why: 'Eosinophil granules contain digestive enzymes particularly effective against parasitic worms in their larval form.',
-    cite: 'Script · Ch. 1 · The Eosinophil' },
-  { q: 'Plasma cells, which produce antibodies, are derived from which cell?',
-    options: ['B lymphocytes', 'T lymphocytes', 'Blood monocytes', 'Band neutrophils'], answer: 0,
-    why: 'B lymphocytes leave the bloodstream to become plasma cells. Monocytes become macrophages (histiocytes).',
-    cite: 'Script · Ch. 1 · Derivative Cells' },
-  { q: 'The normal lifespan of an erythrocyte is approximately:',
-    options: ['120 days', '11 days', '2 days', '30 days'], answer: 0,
-    why: 'Erythrocytes live ~120 days. Platelets 5–11 days; reticulocytes mature in 1–2 days.',
-    cite: 'Script · Ch. 1 · Erythrocytes; Platelets; Reticulocytes' },
-  { q: 'Which cell does NOT extrude its nucleus on reaching maturity?',
-    options: ['Lens fibre', 'Red cell', 'Skin keratinocyte', 'Plasma cell'], answer: 3,
-    why: 'The extrude-the-nucleus group is RBC (hemoglobin), keratinocyte (keratins) and lens fibre (crystallins). Plasma cells keep their nucleus and make antibodies.',
-    cite: 'Script · Ch. 1 · Cells that extrude their nucleus' },
-  { img: { src: '../assets/img/plasma-cell.png', alt: 'Micrograph of a single rounded cell with deep blue-purple cytoplasm, a dark nucleus pushed to one side with clumped chromatin, and a pale zone beside the nucleus.', caption: 'Wright-type stain, high magnification.' },
-    q: 'This cell was found in connective tissue, not on a blood smear. Its off-centre nucleus, clumped "clock-face" chromatin and the pale patch beside the nucleus tell you it is which cell — and which circulating cell did it come from?',
-    options: ['A plasma cell, differentiated from a B lymphocyte', 'A histiocyte, derived from a circulating blood monocyte', 'A large lymphocyte, still circulating in the blood', 'A megakaryocyte, the marrow source of all platelets'], answer: 0,
-    why: 'Eccentric clock-face nucleus + a pale perinuclear Golgi zone + deep-blue (rough-ER-rich) cytoplasm = plasma cell, the antibody factory a B lymphocyte becomes once it leaves the blood. A histiocyte (a macrophage resident in connective tissue) has a kidney-bean nucleus and paler cytoplasm; a lymphocyte\'s nucleus is central and fills the cell; a megakaryocyte is a giant marrow cell with a multi-lobed nucleus.',
-    cite: 'Script · Ch. 1 · Derivative Cells; Eye link — spotting a plasma cell' }
-], { key: 'L0001:mcq' });
+Quiz.mcq('#mcq', Bank.get('ch1').mcq.slice(0, 13), { key: 'L0001:mcq' });
 
-Quiz.recall('#recall', [
-  { q: 'Describe the appearance of a monocyte on a stained blood smear, and explain what happens to it after it leaves the circulation.',
-    a: 'Largest leukocyte; agranular; U- or kidney-bean-shaped nucleus; abundant light-blue cytoplasm. It leaves the bloodstream by diapedesis and becomes a macrophage (in connective tissue: a histiocyte), a phagocyte defending against viruses and bacteria. 3–9% of leukocytes.' },
-  { q: 'Name the three platelet granule types and what each contains.',
-    a: 'α-granules: proteoglycans, hemostasis factors and cofactors. δ-granules (dense bodies): serotonin and Ca++. λ-granules: lysosomes.' },
-  { q: 'Which two dyes make up Wright stain and what does each stain? What does Giemsa add, and when is it preferred?',
-    a: 'Eosin stains cytoplasm pink; methylene blue stains nuclear material and nucleic acids blue. Giemsa adds Azure B (good for reticulocytes) and is preferred when a systemic microbial disease is suspected.' },
-  { q: 'Name the three cell types that extrude their nucleus at maturity and the protein each fills its cytoplasm with.',
-    a: 'Red blood cells — hemoglobin. Keratinocytes of the skin — keratins. Lens fibres — crystallins.' },
-  { q: 'What is a "left shift", what cell defines it, and what does it usually mean?',
-    a: 'An increased proportion of band neutrophils (horseshoe-shaped, unsegmented nucleus; normal 3–5%). It means the marrow has been signalled to release and produce more WBCs — most often infection or inflammation.' }
-], { key: 'L0001:recall' });
+Quiz.recall('#recall', Bank.get('ch1').recall1, { key: 'L0001:recall' });
 
 Quiz.results('#results', 'L0001');
 </script>

@@ -33,6 +33,16 @@ Every lesson from L2 on opens with a 3–5 question spaced review of earlier les
 - Drill components in `assets/quiz.js`: `Quiz.mcq`, `Quiz.recall`, `Quiz.sort` (classification, reshuffles → good for interleaving), `Quiz.results`. Result keys: `L000N:review|mcq|sort|recall`.
 - Reusable diagrams live in `assets/img/` (e.g. `hematopoiesis-tree.svg`) and are `<img>`-ed by both lesson and reference sheet.
 
+## Question banks and quizzes (added 14 Sep, afternoon)
+- All questions live in `assets/bank/chN.js` (`Bank.register`), not in lessons. Shapes: `mcq` (text), `images` (picture items with `img`), `recall`, `sort`; chapters split over two lessons use `recall1/2`, `recallA/B`, `sortA/B`, and `images[].part`.
+- Three views of one bank: the lesson's mixed MCQ (`Bank.mix(text, images)`), `quizzes/images.html` (pictures only, per chapter or all), `quizzes/mock-exam.html` (random paper, ~90% MCQ mixed + written).
+- Result keys: lessons `L000N:*`, image quiz `IMG:chN:mcq`, mock `MOCK:*`.
+- Option-length rule is enforced: a checker in the session found 52 items where the correct option was the unique longest/shortest; all rebalanced. Re-run the check (iterate `Bank.ids()`, compare word counts) after adding items.
+- Picture banks: ch1 12 · ch2 8 · ch3 3 (organelle EMs only) · ch4 0 (cilium EM lives in ch5) · ch5 21 · ch6 9 · ch7 7 · ch8 10 · ch9 13.
+- Image → slide mapping (chapter, slide page, embedded image index): see `SPEC` in the extraction script used on 14 Sep; images are in `assets/img/<name>.jpg`, cropped to remove baked-in labels where possible. Labelled ones kept deliberately (as reference figures or because the sample exam itself used a labelled picture): `junctional-complex-em`, `osteons-labelled`, `spongy-bone-labelled`, `endochondral-ossification`, `cardiac-intercalated`, `smooth-muscle`.
+
 ## Progress
-- 14 Sep: L1 (blood smear) and L2 (hematopoiesis, growth factors, EPO) written. No results pasted back yet → no learning records; L3 should re-check L1 numbers and L2 signatures in its warm-up.
+- 14 Sep morning: L1 (blood smear) and L2 (hematopoiesis, growth factors, EPO) written.
+- 14 Sep: L1 results pasted — MCQ 3/13, recall 4/5 (learning record 0001). Unclear whether MCQ was taken before reading; awaiting retry score.
+- 14 Sep afternoon: lessons 3–11 written for every remaining chapter, plus image quiz and mock exam. Each lesson's warm-up re-tests the previous chapter (L3's is L1-heavy on purpose). Learner has not yet reported on any lesson beyond L1.
 - Citations: "Script · Ch. N · §Section title".

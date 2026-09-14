@@ -94,7 +94,7 @@
   <div id="sort"></div>
 
   <h2>6. Drill — MCQ</h2>
-  <p>Immediate feedback; options reshuffle on retry.</p>
+  <p>Immediate feedback; options reshuffle on retry. The picture questions for Chapter 1 (twelve micrographs — "identify the cell shown") are in the <a href="../quizzes/images.html#ch1">image quiz</a>; do them after this.</p>
   <div id="mcq"></div>
 
   <h2>7. Drill — write it (the 10% written part)</h2>
@@ -117,125 +117,24 @@
   </div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a></div>
-    <div class="nav"><a href="0001-reading-a-blood-smear.html">← 0001 — Reading a blood smear</a><span>Next: 0003 — Blood vessels, the three tunics</span></div>
+    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch1">Image quiz — Chapter 1</a></div>
+    <div class="nav"><a href="0001-reading-a-blood-smear.html">← 0001 — Reading a blood smear</a><a href="0003-vessels-the-three-tunics.html">Next: 0003 — Blood vessels, the three tunics →</a></div>
   </footer>
 </main>
 
 <script src="../assets/quiz.js"></script>
+<script src="../assets/bank.js"></script>
+<script src="../assets/bank/ch1.js"></script>
 <script>
 /* Warm-up: spaced review of Lesson 1, reworded so it is retrieval, not recognition. */
-Quiz.mcq('#review', [
-  { q: 'Which leukocyte is the rarest in a normal differential count?',
-    options: ['Basophil', 'Eosinophil', 'Monocyte', 'Lymphocyte'], answer: 0,
-    why: 'Basophils are under 1%. Eosinophils 2–4%, monocytes 4–8%, lymphocytes 20–25%.',
-    cite: 'Script · Ch. 1 · White Blood Cells — Overview' },
-  { q: 'Platelets are fragments pinched off from which marrow cell?',
-    options: ['Megakaryocyte', 'Hemocytoblast', 'Myeloblast', 'Reticulocyte'], answer: 0,
-    why: 'Platelets are shed from the surface of megakaryocytes. The hemocytoblast is the stem cell; the myeloblast makes granulocytes and monocytes; the reticulocyte is an immature red cell.',
-    cite: 'Script · Ch. 1 · Platelets' },
-  { q: 'The diameter of a normal erythrocyte, your size reference on any smear, is:',
-    options: ['7.2 microns', '2–3 microns', '12 microns', '20 microns'], answer: 0,
-    why: '7.2 microns. Platelets are 2–3 microns.',
-    cite: 'Script · Ch. 1 · Erythrocytes' },
-  { q: 'A small cell with a dense round nucleus and only a thin rim of sky-blue cytoplasm is a:',
-    options: ['Lymphocyte', 'Monocyte', 'Neutrophil', 'Basophil'], answer: 0,
-    why: 'Lymphocyte: nucleus huge relative to the cell, thin sky-blue rim. Monocytes are the largest leukocyte with abundant pale-blue cytoplasm.',
-    cite: 'Script · Ch. 1 · The Lymphocyte' },
-  { q: 'Azure B, the extra dye in Giemsa stain, is especially good at identifying:',
-    options: ['Reticulocytes', 'Platelets', 'Basophils', 'Monocytes'], answer: 0,
-    why: 'Azure B is especially good at identifying reticulocytes. Giemsa is chosen when a systemic microbial disease is suspected.',
-    cite: 'Script · Ch. 1 · Stains for Blood Smears' }
-], { key: 'L0002:review' });
+Quiz.mcq('#review', Bank.get('ch1').review2, { key: 'L0002:review' });
 
 /* Classification drill: which line, and which signature factor. */
-Quiz.sort('#sort', {
-  buckets: ['Myeloid line', 'Lymphoid line'],
-  items: [
-    { label: 'Mast cell', bucket: 0, why: 'A direct child of the common myeloid progenitor, sibling of the myeloblast.' },
-    { label: 'Natural killer cell', bucket: 1, why: 'A large granular lymphocyte, branching directly off the lymphoid progenitor.' },
-    { label: 'Monocyte', bucket: 0, why: 'A myeloblast child, alongside basophil, neutrophil and eosinophil.' },
-    { label: 'Plasma cell', bucket: 1, why: 'Lymphoid: small lymphocyte → B lymphocyte → plasma cell.' },
-    { label: 'Megakaryocyte', bucket: 0, why: 'Myeloid; it sheds thrombocytes.' },
-    { label: 'Macrophage', bucket: 0, why: 'Myeloid: myeloblast → monocyte → macrophage.' },
-    { label: 'T lymphocyte', bucket: 1, why: 'Lymphoid: small lymphocyte → T lymphocyte; matures in the Thymus.' },
-    { label: 'Eosinophil', bucket: 0, why: 'Myeloid, a myeloblast child; its signature factor is IL-5.' },
-    { label: 'Erythrocyte', bucket: 0, why: 'A direct child of the myeloid progenitor, driven by Epo.' },
-    { label: 'Small lymphocyte', bucket: 1, why: 'Lymphoid; becomes a T or B lymphocyte.' }
-  ]
-}, { key: 'L0002:sort' });
+Quiz.sort('#sort', Bank.get('ch1').sort2, { key: 'L0002:sort' });
 
-Quiz.mcq('#mcq', [
-  { q: 'Every blood cell descends from a single self-renewing ancestor. The script calls it the:',
-    options: ['Multipotential hematopoietic stem cell', 'Common myeloid progenitor cell', 'Common lymphoid progenitor cell', 'Immature bone marrow myeloblast'], answer: 0,
-    why: 'The multipotential hematopoietic stem cell, or hemocytoblast, renews itself and gives rise to both progenitors.',
-    cite: 'Script · Ch. 1 · Hematopoiesis' },
-  { q: 'Which of these arises directly from the common LYMPHOID progenitor?',
-    options: ['Natural killer (NK) cells', 'Mast cells in tissue', 'Monocytes in the blood', 'Megakaryocytes in the marrow'], answer: 0,
-    why: 'The lymphoid progenitor gives the NK cell (a large granular lymphocyte) and the small lymphocyte. Mast cells, monocytes and megakaryocytes are all myeloid.',
-    cite: 'Script · Ch. 1 · Hematopoiesis' },
-  { q: 'The myeloblast gives rise to all of the following EXCEPT:',
-    options: ['Mast cells', 'Neutrophil granulocytes', 'Eosinophil granulocytes', 'Blood monocytes'], answer: 0,
-    why: 'The mast cell comes straight from the myeloid progenitor, as a sibling of the myeloblast. The myeloblast makes basophil, neutrophil, eosinophil and monocyte.',
-    cite: 'Script · Ch. 1 · Hematopoiesis' },
-  { q: 'During embryogenesis, hematopoiesis takes place in:',
-    options: ['Islands in the yolk sac', 'Cavities of the bone marrow', 'Sinusoids of the fetal liver', 'Cortex of the thymus gland'], answer: 0,
-    why: 'Embryo: islands of cells in the yolk sac. After birth: bone marrow.',
-    cite: 'Script · Ch. 1 · Where hematopoiesis takes place' },
-  { q: 'In humans, where do B lymphocytes mature?',
-    options: ['The human bone marrow', 'The human thymus gland', 'The bursa of Fabricius', 'The islands of yolk sac'], answer: 0,
-    why: 'B is for the bursa of Fabricius, a bird organ. Humans have none, so the bone marrow takes over. T cells mature in the Thymus.',
-    cite: 'Script · Ch. 1 · Where hematopoiesis takes place' },
-  { q: 'Which growth factor is specific to the step that produces megakaryocytes, and hence platelets?',
-    options: ['TPO', 'Epo', 'IL-5', 'M-CSF'], answer: 0,
-    why: 'TPO = thrombopoietin, T for thrombocyte. Epo → erythrocyte; IL-5 → eosinophil; M-CSF → monocyte.',
-    cite: 'Script · Ch. 1 · Growth Factors' },
-  { q: 'IL-5 appears in the script at only one branch point. Which?',
-    options: ['Myeloblast to eosinophil', 'Myeloblast to neutrophil', 'Myeloblast to monocyte', 'Myeloblast to basophil'], answer: 0,
-    why: 'Eosinophil: IL-3, IL-5, GM-CSF. Neutrophil and basophil share SCF, G-CSF, GM-CSF, IL-3, IL-6; monocyte swaps G-CSF for M-CSF.',
-    cite: 'Script · Ch. 1 · Growth Factors' },
-  { q: 'M-CSF drives the myeloblast toward which cell?',
-    options: ['Monocyte', 'Neutrophil', 'Eosinophil', 'Erythrocyte'], answer: 0,
-    why: 'M for monocyte. The neutrophil (and basophil) use G-CSF instead; the erythrocyte uses Epo.',
-    cite: 'Script · Ch. 1 · Growth Factors' },
-  { q: 'Which factor is listed at EVERY myeloid branch point in the script?',
-    options: ['GM-CSF', 'G-CSF', 'M-CSF', 'SCF'], answer: 0,
-    why: 'GM-CSF is at all eight myeloid steps. SCF is missing from the eosinophil step and from myeloid progenitor → myeloblast; G-CSF and M-CSF are lineage-specific.',
-    cite: 'Script · Ch. 1 · Growth Factors' },
-  { q: 'Which set of factors belongs to the stem cell → common LYMPHOID progenitor step?',
-    options: ['FLT-3 ligand, SDF-1', 'IL-1, IL-3, GM-CSF', 'SCF, TPO, IL-3', 'IL-3, IL-5, GM-CSF'], answer: 0,
-    why: 'Lymphoid: FLT-3 ligand, TNF-α, TGF-β1, IL-2, IL-7, IL-12, SDF-1. The others are myeloid progenitor, megakaryocyte and eosinophil sets.',
-    cite: 'Script · Ch. 1 · Growth Factors' },
-  { q: 'According to the script, erythropoietin is produced by:',
-    options: ['Interstitial fibroblasts of the kidney', 'Juxtaglomerular cells of the kidney', 'Peri-sinusoidal cells of the spleen', 'Endothelial cells of the marrow'], answer: 0,
-    why: 'Interstitial fibroblasts in the kidney and peri-sinusoidal cells in the liver (not the spleen).',
-    cite: 'Script · Ch. 1 · Erythropoietin — EPO' },
-  { q: 'The stimulus that increases EPO production and release is:',
-    options: ['Hypoxia', 'Infection', 'Dehydration', 'Inflammation'], answer: 0,
-    why: 'Hypoxia: when oxygen delivery falls, the kidney senses it and drives the marrow to make more red cells.',
-    cite: 'Script · Ch. 1 · Erythropoietin — EPO' },
-  { q: 'A patient on renal dialysis is anemic. The script\'s explanation:',
-    options: ['The diseased kidney makes little EPO', 'Dialysis destroys the circulating red cells', 'Bone marrow stops responding to EPO', 'Iron is lost during each dialysis'], answer: 0,
-    why: 'The kidney can no longer produce enough EPO, so the anemia is endocrine rather than hematological. Recombinant EPO treats it.',
-    cite: 'Script · Ch. 1 · EPO — Clinical note' },
-  { q: 'EPO is best described as a:',
-    options: ['Glycoprotein hormone acting as a cytokine', 'Steroid hormone acting on the kidney', 'Colony stimulating factor for platelets', 'Interleukin released by lymphocytes'], answer: 0,
-    why: 'A glycoprotein hormone that functions as a cytokine on red cell precursors in the marrow.',
-    cite: 'Script · Ch. 1 · Erythropoietin — EPO' }
-], { key: 'L0002:mcq' });
+Quiz.mcq('#mcq', Bank.get('ch1').mcq.slice(13), { key: 'L0002:mcq' });
 
-Quiz.recall('#recall', [
-  { q: 'Script practice question 4: Where does hematopoiesis take place before birth, and where does it take place after birth?',
-    a: 'Before birth: in islands of cells in the yolk sac. After birth: in the bone marrow. Maturation of some cells finishes elsewhere — T cells in the Thymus; B cells in the bursa of Fabricius in birds, which in humans means the bone marrow.' },
-  { q: 'Script practice question 5: Which hormone, produced by the kidney in response to hypoxia, stimulates red blood cell production, and in what clinical settings is a recombinant form of it used?',
-    a: 'Erythropoietin (EPO) — a glycoprotein hormone/cytokine from interstitial fibroblasts of the kidney (and peri-sinusoidal cells of the liver), released in hypoxia, acting on red cell precursors in the marrow. Recombinant EPO treats anemia after blood loss in inflammatory bowel disease, after chemotherapy, or in renal dialysis.' },
-  { q: 'Name the two great lines of descent from the hemocytoblast and list what each gives rise to directly.',
-    a: 'Common myeloid progenitor → megakaryocyte (→ thrombocytes), erythrocyte, mast cell, myeloblast (→ basophil, neutrophil, eosinophil, monocyte → macrophage). Common lymphoid progenitor → natural killer cell (large granular lymphocyte) and small lymphocyte (→ T lymphocyte, B lymphocyte → plasma cell).' },
-  { q: 'Explain in three sentences why a patient with kidney disease becomes anemic, and why the script calls it an endocrine rather than a hematological problem.',
-    a: 'EPO is made by interstitial fibroblasts of the kidney in response to hypoxia and tells the marrow to make red cells. A diseased kidney cannot make enough EPO, so the marrow is never told to work and red cell production falls. The marrow itself is healthy — the defect is a missing hormone, hence endocrine; recombinant EPO corrects it.' },
-  { q: 'Give the five "signature" growth factors and the branch each one drives.',
-    a: 'TPO → megakaryocyte/thrombocytes. Epo → erythrocyte. IL-5 → eosinophil. M-CSF → monocyte. G-CSF → neutrophil and basophil. (GM-CSF is at every myeloid step and does not discriminate.)' }
-], { key: 'L0002:recall' });
+Quiz.recall('#recall', Bank.get('ch1').recall2, { key: 'L0002:recall' });
 
 Quiz.results('#results', 'L0002');
 </script>
