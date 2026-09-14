@@ -1,0 +1,126 @@
+/* Histology course — shared stylesheet. Tufte-inspired: one measure, generous margins, quiet boxes. */
+:root {
+  --ink: #1b1b1b;
+  --muted: #5c5c5c;
+  --paper: #fffef9;
+  --rule: #d9d4c7;
+  --accent: #8a1c1c;      /* eosin-ish red */
+  --accent-2: #1c3f8a;    /* methylene-blue-ish */
+  --ok: #1e6b3a;
+  --ok-bg: #e6f4ea;
+  --bad: #9b1c1c;
+  --bad-bg: #fbe9e9;
+  --note-bg: #f4f1e8;
+  --clinic-bg: #eef2fb;
+  --eye-bg: #fdf3e7;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+  --serif: "ET Book", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --sans: "Gill Sans", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  margin: 0; padding: 2.5rem 1.25rem 5rem;
+  background: var(--paper); color: var(--ink);
+  font-family: var(--serif); line-height: 1.55;
+}
+main { max-width: 44rem; margin: 0 auto; }
+h1, h2, h3 { font-weight: 400; line-height: 1.2; }
+h1 { font-size: 2.2rem; margin: 0 0 .25rem; font-style: italic; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 .75rem; border-bottom: 1px solid var(--rule); padding-bottom: .25rem; }
+h3 { font-size: 1.15rem; margin: 1.75rem 0 .5rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid #b8c4e2; }
+a:hover { border-bottom-color: var(--accent-2); }
+.kicker { font-family: var(--sans); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.subtitle { font-size: 1.15rem; color: var(--muted); font-style: italic; margin-bottom: 1.5rem; }
+.meta { font-family: var(--sans); font-size: .85rem; color: var(--muted); display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+/* Boxes */
+.box { padding: .9rem 1.1rem; margin: 1.25rem 0; border-left: 3px solid var(--rule); background: var(--note-bg); }
+.box > :last-child { margin-bottom: 0; }
+.box.goal { border-left-color: var(--accent); }
+.box.clinic { background: var(--clinic-bg); border-left-color: var(--accent-2); }
+.box.eye { background: var(--eye-bg); border-left-color: #c77a1f; }
+.box.numbers { font-family: var(--sans); font-size: .95rem; }
+.box .label { font-family: var(--sans); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .35rem; }
+
+/* Citation to the script */
+.cite { font-family: var(--sans); font-size: .75rem; color: var(--muted); }
+.cite::before { content: "§ "; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; margin: 1rem 0 1.5rem; font-size: .92rem; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .6rem; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--sans); font-weight: 600; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+tr:nth-child(even) td { background: #faf8f2; }
+td.k { font-weight: 600; white-space: nowrap; }
+.table-scroll { overflow-x: auto; }
+
+/* Decision tree */
+.tree { font-family: var(--sans); font-size: .95rem; list-style: none; padding-left: 0; }
+.tree ul { list-style: none; padding-left: 1.4rem; border-left: 1px dashed var(--rule); margin: .3rem 0 .3rem .4rem; }
+.tree li { margin: .35rem 0; }
+.tree .q { font-weight: 600; }
+.tree .leaf { color: var(--accent); font-weight: 600; }
+.tree .cue { color: var(--muted); }
+
+/* Lists */
+ul, ol { padding-left: 1.4rem; }
+li { margin: .25rem 0; }
+dl { margin: 0 0 1rem; }
+dt { font-weight: 600; margin-top: .6rem; }
+dd { margin: 0 0 .25rem 1rem; color: #333; }
+kbd, code { font-family: var(--mono); font-size: .85em; background: #f1efe8; padding: .05em .3em; border-radius: 3px; }
+mark { background: #fff3a8; padding: 0 .15em; }
+
+/* Quiz widget (see quiz.js) */
+.quiz { margin: 1.5rem 0; font-family: var(--sans); }
+.quiz .item { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.1rem; margin: 0 0 1rem; background: #fff; }
+.quiz .stem { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .75rem; }
+.quiz .stem .n { color: var(--muted); font-family: var(--sans); font-size: .8rem; margin-right: .5rem; }
+.quiz .opts { display: grid; gap: .45rem; }
+.quiz button.opt {
+  font: inherit; text-align: left; cursor: pointer; padding: .55rem .8rem;
+  border: 1px solid var(--rule); border-radius: 5px; background: #fdfcf8; color: var(--ink);
+}
+.quiz button.opt:hover:not(:disabled) { border-color: var(--accent-2); }
+.quiz button.opt:disabled { cursor: default; }
+.quiz button.opt.ok { background: var(--ok-bg); border-color: var(--ok); }
+.quiz button.opt.bad { background: var(--bad-bg); border-color: var(--bad); }
+.quiz .why { margin-top: .75rem; padding: .6rem .8rem; background: var(--note-bg); border-radius: 5px; font-size: .92rem; display: none; }
+.quiz .why.show { display: block; }
+.quiz .why .cite { display: block; margin-top: .3rem; }
+.quiz .score { margin-top: 1rem; padding: .8rem 1rem; border-radius: 6px; background: var(--note-bg); font-weight: 600; display: none; }
+.quiz .score.show { display: block; }
+.quiz .score button { font: inherit; margin-left: .75rem; padding: .3rem .7rem; cursor: pointer; }
+
+/* Recall cards (free recall, then reveal, self-graded) */
+.recall .card { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.1rem; margin: 0 0 1rem; background: #fff; }
+.recall .prompt { font-family: var(--serif); font-size: 1.05rem; }
+.recall .answer { display: none; margin-top: .75rem; padding: .6rem .8rem; background: var(--note-bg); border-radius: 5px; font-size: .95rem; }
+.recall .answer.show { display: block; }
+.recall .controls { margin-top: .6rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+.recall button { font: inherit; font-size: .9rem; padding: .35rem .7rem; cursor: pointer; border: 1px solid var(--rule); border-radius: 5px; background: #fdfcf8; }
+.recall button.got { border-color: var(--ok); color: var(--ok); }
+.recall button.miss { border-color: var(--bad); color: var(--bad); }
+.recall .card.got { border-color: var(--ok); }
+.recall .card.miss { border-color: var(--bad); }
+
+/* Results export (see Quiz.results) */
+.results { font-family: var(--sans); margin: 1rem 0 0; }
+.results .controls { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.results button { font: inherit; font-size: .95rem; padding: .45rem .9rem; cursor: pointer; border: 1px solid var(--accent-2); border-radius: 5px; background: #fdfcf8; color: var(--accent-2); }
+.results textarea { width: 100%; margin-top: .6rem; font-family: var(--mono); font-size: .85rem; padding: .5rem; border: 1px solid var(--rule); border-radius: 5px; background: #fff; }
+
+footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .85rem; color: var(--muted); }
+.nav { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+@media print {
+  html { font-size: 11pt; }
+  body { padding: 0; background: #fff; }
+  .quiz, .recall .controls, .no-print { display: none !important; }
+  .recall .answer { display: block !important; }
+  a { border: 0; color: inherit; }
+  .box, tr { break-inside: avoid; }
+}
