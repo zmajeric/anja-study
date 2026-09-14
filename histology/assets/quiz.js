@@ -7,6 +7,12 @@
  * for "identify what is shown" items like the ones on the real exam.
  * Options are shuffled on every render so position can't be memorised.
  * Feedback is immediate. Scores persist in localStorage under "histology:<key>".
+ *
+ * Stored shapes — both record the number of items the attempt was made against, so a
+ * half-finished attempt still counts and an attempt made before a question was added
+ * is recognisable rather than being reported as a current score:
+ *   mcq     {correct, total, answered, missed: [n...], at, stale?}
+ *   recall  {r: {n: bool...}, total, at}          (older flat {n: bool} is still read)
  */
 (function () {
   var store = {
@@ -40,6 +46,15 @@
     return fig;
   }
 
+  /* How a stored attempt reads back, once the quiz itself may have changed under it. */
+  function prevLine(p) {
+    if (p.stale) return 'Last attempt (' + p.correct + '/' + p.total + ') was taken before this quiz grew — take it again for a score you can send.';
+    var left = p.total - (p.answered == null ? p.total : p.answered);
+    return 'Last attempt: ' + p.correct + '/' + p.total +
+      (left ? ' — ' + left + ' left unanswered' : '') +
+      (p.missed.length ? ' — missed questions ' + p.missed.join(', ') : '');
+  }
+
   function mcq(root, items, opts) {
     opts = opts || {};
     root = typeof root === 'string' ? document.querySelector(root) : root;
@@ -48,7 +63,10 @@
     var answered = 0, correct = 0, missed = [];
     root.innerHTML = '';
     var prev = store.get(key);
-    if (prev) root.appendChild(h('p', { class: 'cite' }, 'Last attempt: ' + prev.correct + '/' + prev.total + (prev.missed.length ? ' — missed questions ' + prev.missed.join(', ') : '')));
+    /* An attempt at a different number of questions is not this quiz's score. Mark it
+     * so the banner and the export both say so instead of quoting a stale total. */
+    if (prev && prev.total !== items.length) { prev.stale = true; store.set(key, prev); }
+    if (prev) root.appendChild(h('p', { class: 'cite' }, prevLine(prev)));
 
     items.forEach(function (it, i) {
       var why = h('div', { class: 'why' });
@@ -73,15 +91,28 @@
         if (it.cite) why.appendChild(h('span', { class: 'cite' }, it.cite));
         why.classList.add('show');
         answered++; if (ok) correct++; else missed.push(i + 1);
-        if (answered === items.length) done();
+        save();
+        if (answered === items.length) done(); else progress();
       }
       root.appendChild(item);
     });
 
     var score = h('div', { class: 'score' });
     root.appendChild(score);
+
+    /* Save after every answer, not only on completion: a half-finished attempt is still
+     * evidence worth sending, and the last question — the one most likely to be left
+     * hanging — must not be able to void the twelve above it. */
+    function save() {
+      store.set(key, { correct: correct, total: items.length, answered: answered, missed: missed.slice(), at: Date.now() });
+    }
+    function progress() {
+      var left = items.length - answered;
+      score.textContent = 'Answered ' + answered + ' of ' + items.length + ' — ' + correct + ' correct. ' +
+        left + (left === 1 ? ' question still unanswered.' : ' questions still unanswered.');
+      score.classList.add('show');
+    }
     function done() {
-      store.set(key, { correct: correct, total: items.length, missed: missed, at: Date.now() });
       score.textContent = 'Score: ' + correct + '/' + items.length + '. ' + (missed.length ? 'Re-read the explanations for ' + missed.join(', ') + ', then retry.' : 'Clean sweep.');
       score.appendChild(h('button', { onclick: function () { mcq(root, items, opts); } }, 'Retry (reshuffled)'));
       score.classList.add('show');
@@ -94,7 +125,9 @@
     root.classList.add('recall');
     var key = opts.key || (root.id + ':recall');
     root.innerHTML = '';
-    var results = store.get(key) || {};
+    var saved = store.get(key);
+    var results = (saved && saved.r) ? saved.r : (saved || {});
+    function save() { store.set(key, { r: results, total: items.length, at: Date.now() }); }
     items.forEach(function (it, i) {
       var ans = h('div', { class: 'answer' }, it.a);
       var card = h('div', { class: 'card' });
@@ -104,7 +137,7 @@
       miss = h('button', { class: 'miss', disabled: 'disabled', onclick: function () { grade(false); } }, 'I missed it');
       function grade(ok) {
         card.classList.remove('got', 'miss'); card.classList.add(ok ? 'got' : 'miss');
-        results[i + 1] = ok; store.set(key, results);
+        results[i + 1] = ok; save();
       }
       var fig = figure(it.img); if (fig) card.appendChild(fig);
       card.appendChild(h('div', { class: 'prompt' }, it.q));
@@ -127,13 +160,35 @@
     var status = h('span', { class: 'cite' });
     function summary() {
       var parts = [lessonId];
-      var mcq = store.get(lessonId + ':mcq');
-      parts.push(mcq ? 'mcq ' + mcq.correct + '/' + mcq.total + (mcq.missed.length ? ' (missed ' + mcq.missed.join(', ') + ')' : ' (clean)') : 'mcq not done');
+
+      var m = store.get(lessonId + ':mcq');
+      if (!m) {
+        parts.push('mcq not done');
+      } else if (m.stale) {
+        parts.push('mcq ' + m.correct + '/' + m.total + ' — taken before the quiz grew to its current length, not retaken');
+      } else {
+        var mNotes = [];
+        var unanswered = m.total - (m.answered == null ? m.total : m.answered);
+        if (m.missed.length) mNotes.push('missed ' + m.missed.join(', '));
+        if (unanswered) mNotes.push(unanswered + ' unanswered');
+        parts.push('mcq ' + m.correct + '/' + m.total + ' (' + (mNotes.length ? mNotes.join('; ') : 'clean') + ')');
+      }
+
       var rec = store.get(lessonId + ':recall');
-      if (rec) {
-        var keys = Object.keys(rec), missedR = keys.filter(function (k) { return !rec[k]; });
-        parts.push('recall ' + (keys.length - missedR.length) + '/' + keys.length + (missedR.length ? ' (missed ' + missedR.join(', ') + ')' : ' (clean)'));
-      } else parts.push('recall not done');
+      var map = (rec && rec.r) ? rec.r : rec;
+      var keys = map ? Object.keys(map) : [];
+      if (!keys.length) {
+        parts.push('recall not done');
+      } else {
+        /* Denominator is every card in the set, not just the ones graded so far. */
+        var total = (rec && rec.total) || keys.length;
+        var missedR = keys.filter(function (k) { return !map[k]; });
+        var rNotes = [];
+        if (missedR.length) rNotes.push('missed ' + missedR.join(', '));
+        if (total > keys.length) rNotes.push((total - keys.length) + ' ungraded');
+        parts.push('recall ' + (keys.length - missedR.length) + '/' + total + ' (' + (rNotes.length ? rNotes.join('; ') : 'clean') + ')');
+      }
+
       parts.push(new Date().toISOString().slice(0, 10));
       return parts.join(' · ');
     }
