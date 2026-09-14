@@ -46,6 +46,8 @@
     return fig;
   }
 
+  function byNumber(a, b) { return a - b; }
+
   /* How a stored attempt reads back, once the quiz itself may have changed under it. */
   function prevLine(p) {
     if (p.stale) return 'Last attempt (' + p.correct + '/' + p.total + ') was taken before this quiz grew — take it again for a score you can send.';
@@ -103,8 +105,10 @@
     /* Save after every answer, not only on completion: a half-finished attempt is still
      * evidence worth sending, and the last question — the one most likely to be left
      * hanging — must not be able to void the twelve above it. */
+    /* Sorted on the way out: `missed` accumulates in answering order, which would
+     * otherwise report the order she clicked rather than which questions to revisit. */
     function save() {
-      store.set(key, { correct: correct, total: items.length, answered: answered, missed: missed.slice(), at: Date.now() });
+      store.set(key, { correct: correct, total: items.length, answered: answered, missed: missed.slice().sort(byNumber), at: Date.now() });
     }
     function progress() {
       var left = items.length - answered;
@@ -113,7 +117,7 @@
       score.classList.add('show');
     }
     function done() {
-      score.textContent = 'Score: ' + correct + '/' + items.length + '. ' + (missed.length ? 'Re-read the explanations for ' + missed.join(', ') + ', then retry.' : 'Clean sweep.');
+      score.textContent = 'Score: ' + correct + '/' + items.length + '. ' + (missed.length ? 'Re-read the explanations for ' + missed.slice().sort(byNumber).join(', ') + ', then retry.' : 'Clean sweep.');
       score.appendChild(h('button', { onclick: function () { mcq(root, items, opts); } }, 'Retry (reshuffled)'));
       score.classList.add('show');
     }
