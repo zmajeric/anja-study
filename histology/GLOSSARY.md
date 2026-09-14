@@ -73,6 +73,12 @@ _Avoid_: multipotential stem cell on its own (too generic once other lineages ap
 - **Neutrophil granules.** The chapter overview calls them "blue"; the detail section calls
   them tiny, light-staining and hard to see. The detail section is the recognition cue and the
   one to rely on at the microscope; the overview wording may still appear in a question stem.
+- **Epo / EPO.** The script writes "Epo" in the growth-factor list and "EPO" in the
+  erythropoietin section. Use **EPO** in prose and quiz stems; "Epo" only when quoting the
+  branch-point list, where it sits next to TPO. (Lesson 2 follows this.)
+- **Natural killer cell.** Write it out; "NK cell" only after the full name in the same
+  lesson. It is a *large granular lymphocyte* from the lymphoid progenitor, never a "small
+  lymphocyte" — the script keeps the two on separate branches.
 - **Fibrocyte and fibroblast (Chapter 9, not yet taught).** Freddo reverses the convention used
   by most textbooks: for him **fibrocyte** is the active cell and **fibroblast** the inactive
   one. Recorded here in advance because prior reading is the likeliest source of error when

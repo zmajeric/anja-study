@@ -30,4 +30,9 @@ Every lesson from L2 on opens with a 3–5 question spaced review of earlier les
 - Lessons: `lessons/NNNN-slug.html`, link `../assets/course.css` and `../assets/quiz.js`.
 - Reference sheets: `reference/<chapter-slug>.html`; glossary in `reference/glossary.html`, extended every lesson.
 - Quiz answers must have equal word counts (no formatting clues).
+- Drill components in `assets/quiz.js`: `Quiz.mcq`, `Quiz.recall`, `Quiz.sort` (classification, reshuffles → good for interleaving), `Quiz.results`. Result keys: `L000N:review|mcq|sort|recall`.
+- Reusable diagrams live in `assets/img/` (e.g. `hematopoiesis-tree.svg`) and are `<img>`-ed by both lesson and reference sheet.
+
+## Progress
+- 14 Sep: L1 (blood smear) and L2 (hematopoiesis, growth factors, EPO) written. No results pasted back yet → no learning records; L3 should re-check L1 numbers and L2 signatures in its warm-up.
 - Citations: "Script · Ch. N · §Section title".

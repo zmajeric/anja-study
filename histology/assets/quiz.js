@@ -2,6 +2,10 @@
  *
  *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite, img}]
  *   Quiz.recall(el, items, {key})  items: [{q, a, img}]
+ *   Quiz.sort(el, {buckets, items}, {key})
+ *                                  buckets: ['A', 'B', ...]; items: [{label, bucket: <index>, why}]
+ *                                  A classification drill: every item gets one button per bucket.
+ *                                  Items are shuffled on each render, so it interleaves by design.
  *
  * `img` is optional: {src, alt, caption} — a micrograph shown above the question stem,
  * for "identify what is shown" items like the ones on the real exam.
@@ -13,6 +17,7 @@
  * is recognisable rather than being reported as a current score:
  *   mcq     {correct, total, answered, missed: [n...], at, stale?}
  *   recall  {r: {n: bool...}, total, at}          (older flat {n: bool} is still read)
+ *   sort    {correct, total, answered, missed: [label...], at, stale?}   (same shape as mcq, labels not numbers)
  */
 (function () {
   var store = {
@@ -152,6 +157,59 @@
     });
   }
 
+  function sort(root, spec, opts) {
+    opts = opts || {};
+    root = typeof root === 'string' ? document.querySelector(root) : root;
+    root.classList.add('quiz', 'sort');
+    var key = opts.key || root.id || 'sort';
+    var answered = 0, correct = 0, missed = [];
+    root.innerHTML = '';
+    var prev = store.get(key);
+    if (prev && prev.total !== spec.items.length) { prev.stale = true; store.set(key, prev); }
+    if (prev) root.appendChild(h('p', { class: 'cite' }, prevLine(prev)));
+
+    var items = shuffle(spec.items);
+    items.forEach(function (it) {
+      var why = h('div', { class: 'why' });
+      var optsEl = h('div', { class: 'opts row' });
+      var item = h('div', { class: 'item' });
+      item.appendChild(h('div', { class: 'stem' }, it.label));
+      item.appendChild(optsEl); item.appendChild(why);
+      var buttons = spec.buckets.map(function (b, bi) {
+        return h('button', { class: 'opt', onclick: function () { pick(bi); } }, b);
+      });
+      buttons.forEach(function (b) { optsEl.appendChild(b); });
+      function pick(bi) {
+        buttons.forEach(function (b) { b.disabled = true; });
+        var ok = bi === it.bucket;
+        buttons[it.bucket].classList.add('ok');
+        if (!ok) buttons[bi].classList.add('bad');
+        why.appendChild(document.createTextNode((ok ? 'Correct. ' : 'Not quite. ') + (it.why || '')));
+        why.classList.add('show');
+        answered++; if (ok) correct++; else missed.push(it.label);
+        save();
+        if (answered === items.length) done(); else progress();
+      }
+      root.appendChild(item);
+    });
+
+    var score = h('div', { class: 'score' });
+    root.appendChild(score);
+    function save() {
+      store.set(key, { correct: correct, total: items.length, answered: answered, missed: missed.slice().sort(), at: Date.now() });
+    }
+    function progress() {
+      var left = items.length - answered;
+      score.textContent = 'Answered ' + answered + ' of ' + items.length + ' — ' + correct + ' correct. ' + left + ' still to sort.';
+      score.classList.add('show');
+    }
+    function done() {
+      score.textContent = 'Score: ' + correct + '/' + items.length + '. ' + (missed.length ? 'Missed: ' + missed.slice().sort().join(', ') + '. Retry until clean.' : 'Clean sweep.');
+      score.appendChild(h('button', { onclick: function () { sort(root, spec, opts); } }, 'Retry (reshuffled)'));
+      score.classList.add('show');
+    }
+  }
+
   /* Quiz.results(el, lessonId): a "Copy my results" button that gathers every stored
    * score whose key starts with "histology:<lessonId>" and puts a one-line summary on the
    * clipboard (and on screen, in case the clipboard is blocked) — paste it to the teacher. */
@@ -165,18 +223,23 @@
     function summary() {
       var parts = [lessonId];
 
-      var m = store.get(lessonId + ':mcq');
-      if (!m) {
-        parts.push('mcq not done');
-      } else if (m.stale) {
-        parts.push('mcq ' + m.correct + '/' + m.total + ' — taken before the quiz grew to its current length, not retaken');
-      } else {
-        var mNotes = [];
-        var unanswered = m.total - (m.answered == null ? m.total : m.answered);
-        if (m.missed.length) mNotes.push('missed ' + m.missed.join(', '));
-        if (unanswered) mNotes.push(unanswered + ' unanswered');
-        parts.push('mcq ' + m.correct + '/' + m.total + ' (' + (mNotes.length ? mNotes.join('; ') : 'clean') + ')');
-      }
+      /* mcq-shaped drills: the warm-up review, the MCQ proper, and the sort drill.
+       * A drill is only reported if the lesson has it on the page or a score is stored. */
+      ['review', 'mcq', 'sort'].forEach(function (kind) {
+        var m = store.get(lessonId + ':' + kind);
+        if (!m && !document.getElementById(kind)) return;
+        if (!m) {
+          parts.push(kind + ' not done');
+        } else if (m.stale) {
+          parts.push(kind + ' ' + m.correct + '/' + m.total + ' — taken before the quiz grew to its current length, not retaken');
+        } else {
+          var mNotes = [];
+          var unanswered = m.total - (m.answered == null ? m.total : m.answered);
+          if (m.missed.length) mNotes.push('missed ' + m.missed.join(', '));
+          if (unanswered) mNotes.push(unanswered + ' unanswered');
+          parts.push(kind + ' ' + m.correct + '/' + m.total + ' (' + (mNotes.length ? mNotes.join('; ') : 'clean') + ')');
+        }
+      });
 
       var rec = store.get(lessonId + ':recall');
       var map = (rec && rec.r) ? rec.r : rec;
@@ -207,5 +270,5 @@
     root.appendChild(out);
   }
 
-  window.Quiz = { mcq: mcq, recall: recall, results: results };
+  window.Quiz = { mcq: mcq, recall: recall, sort: sort, results: results };
 })();
