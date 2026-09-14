@@ -103,6 +103,10 @@
     <li><strong>Plasma cell</strong> — derived from B lymphocytes; makes antibodies.</li>
     <li><strong>Histiocyte</strong> — a macrophage derived from extravascular monocytes.</li>
   </ul>
+  <div class="box eye">
+    <div class="label">Eye link — spotting a plasma cell in tissue</div>
+    <p>The exam likes to show a micrograph and ask "which cell?". A plasma cell gives itself away three times over: the nucleus sits <strong>off-centre</strong> (eccentric); its chromatin is in coarse clumps around the rim — the <strong>"clock-face"</strong> or cartwheel pattern; and next to the nucleus there is a <strong>pale, unstained patch</strong> in otherwise deep-blue cytoplasm — the Golgi region where antibodies are packaged. Deep-blue cytoplasm = a lot of rough ER = a cell making a lot of protein. Compare with a lymphocyte, whose nucleus is central and nearly fills the cell.</p>
+  </div>
   <p class="cite">Script · Ch. 1 · White Blood Cells — Overview; Granulocytes; Agranulocytes; Derivative Cells</p>
 
   <h2>5. The recognition tree</h2>
@@ -122,7 +126,7 @@
   </ul>
 
   <h2>6. Drill — MCQ</h2>
-  <p>Immediate feedback; options reshuffle on retry. Aim for 12/12 before moving on.</p>
+  <p>Immediate feedback; options reshuffle on retry. Aim for 13/13 before moving on.</p>
   <div id="mcq"></div>
 
   <h2>7. Drill — write it (the 10% written part)</h2>
@@ -200,7 +204,12 @@ Quiz.mcq('#mcq', [
   { q: 'Which cell does NOT extrude its nucleus on reaching maturity?',
     options: ['Lens fibre', 'Red cell', 'Skin keratinocyte', 'Plasma cell'], answer: 3,
     why: 'The extrude-the-nucleus group is RBC (hemoglobin), keratinocyte (keratins) and lens fibre (crystallins). Plasma cells keep their nucleus and make antibodies.',
-    cite: 'Script · Ch. 1 · Cells that extrude their nucleus' }
+    cite: 'Script · Ch. 1 · Cells that extrude their nucleus' },
+  { img: { src: '../assets/img/plasma-cell.png', alt: 'Micrograph of a single rounded cell with deep blue-purple cytoplasm, a dark nucleus pushed to one side with clumped chromatin, and a pale zone beside the nucleus.', caption: 'Wright-type stain, high magnification.' },
+    q: 'This cell was found in connective tissue, not on a blood smear. Its off-centre nucleus, clumped "clock-face" chromatin and the pale patch beside the nucleus tell you it is which cell — and which circulating cell did it come from?',
+    options: ['A plasma cell, derived from a B lymphocyte', 'A histiocyte, derived from a monocyte', 'A large lymphocyte, still in circulation', 'A megakaryocyte, the source of platelets'], answer: 0,
+    why: 'Eccentric clock-face nucleus + a pale perinuclear Golgi zone + deep-blue (rough-ER-rich) cytoplasm = plasma cell, the antibody factory a B lymphocyte becomes once it leaves the blood. A histiocyte (tissue macrophage) has a kidney-bean nucleus and paler cytoplasm; a lymphocyte\'s nucleus is central and fills the cell; a megakaryocyte is a giant marrow cell with a multi-lobed nucleus.',
+    cite: 'Script · Ch. 1 · Derivative Cells; Eye link — spotting a plasma cell' }
 ], { key: 'L0001:mcq' });
 
 Quiz.recall('#recall', [

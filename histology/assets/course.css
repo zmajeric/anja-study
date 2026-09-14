@@ -95,6 +95,11 @@ mark { background: #fff3a8; padding: 0 .15em; }
 .quiz .score.show { display: block; }
 .quiz .score button { font: inherit; margin-left: .75rem; padding: .3rem .7rem; cursor: pointer; }
 
+/* Micrograph shown above a quiz stem or recall prompt (item.img) */
+.quiz .fig, .recall .fig { margin: 0 0 .8rem; }
+.quiz .fig img, .recall .fig img { display: block; max-width: 100%; max-height: 320px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+.quiz .fig figcaption, .recall .fig figcaption { font-size: .75rem; color: var(--muted); margin-top: .3rem; }
+
 /* Recall cards (free recall, then reveal, self-graded) */
 .recall .card { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.1rem; margin: 0 0 1rem; background: #fff; }
 .recall .prompt { font-family: var(--serif); font-size: 1.05rem; }

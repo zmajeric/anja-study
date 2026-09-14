@@ -1,8 +1,10 @@
 /* Histology course — quiz components.
  *
- *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite}]
- *   Quiz.recall(el, items, {key})  items: [{q, a}]
+ *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite, img}]
+ *   Quiz.recall(el, items, {key})  items: [{q, a, img}]
  *
+ * `img` is optional: {src, alt, caption} — a micrograph shown above the question stem,
+ * for "identify what is shown" items like the ones on the real exam.
  * Options are shuffled on every render so position can't be memorised.
  * Feedback is immediate. Scores persist in localStorage under "histology:<key>".
  */
@@ -31,6 +33,13 @@
     return el;
   }
 
+  function figure(img) {
+    if (!img) return null;
+    var fig = h('figure', { class: 'fig' }, h('img', { src: img.src, alt: img.alt || '' }));
+    if (img.caption) fig.appendChild(h('figcaption', {}, img.caption));
+    return fig;
+  }
+
   function mcq(root, items, opts) {
     opts = opts || {};
     root = typeof root === 'string' ? document.querySelector(root) : root;
@@ -44,7 +53,10 @@
     items.forEach(function (it, i) {
       var why = h('div', { class: 'why' });
       var optsEl = h('div', { class: 'opts' });
-      var item = h('div', { class: 'item' }, h('div', { class: 'stem' }, h('span', { class: 'n' }, String(i + 1)), it.q), optsEl, why);
+      var item = h('div', { class: 'item' });
+      var fig = figure(it.img); if (fig) item.appendChild(fig);
+      item.appendChild(h('div', { class: 'stem' }, h('span', { class: 'n' }, String(i + 1)), it.q));
+      item.appendChild(optsEl); item.appendChild(why);
       var order = shuffle(it.options.map(function (_, idx) { return idx; }));
       var buttons = order.map(function (idx) {
         return h('button', { class: 'opt', onclick: function () { pick(idx); } }, it.options[idx]);
@@ -94,6 +106,7 @@
         card.classList.remove('got', 'miss'); card.classList.add(ok ? 'got' : 'miss');
         results[i + 1] = ok; store.set(key, results);
       }
+      var fig = figure(it.img); if (fig) card.appendChild(fig);
       card.appendChild(h('div', { class: 'prompt' }, it.q));
       card.appendChild(h('p', { class: 'cite' }, 'Say or write your answer first. Then reveal.'));
       card.appendChild(ans);
