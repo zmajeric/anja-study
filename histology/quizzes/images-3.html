@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Image quiz · Round 1</title>
+<title>Image quiz · Round 3</title>
 <link rel="stylesheet" href="../assets/course.css">
 <style>
   .chapters { display: flex; flex-wrap: wrap; gap: .4rem; font-family: var(--sans); margin: 1rem 0 1.5rem; }
@@ -13,9 +13,9 @@
 </head>
 <body>
 <main>
-  <div class="kicker">Histology · Picture questions · Round 1</div>
-  <h1>Round 1 · Identify what is shown</h1>
-  <p class="subtitle">Only micrographs — the exam's "identify the cell / tissue shown" format, one chapter at a time or everything mixed.</p>
+  <div class="kicker">Histology · Picture questions · Round 3</div>
+  <h1>Round 3 · The hard set</h1>
+  <p class="subtitle">The same micrographs a third time: look-alike discrimination, "which is NOT true", origins and clinical consequences.</p>
   <p class="cite" style="margin-top:-.5rem">Rounds over the same pictures: <a href="images.html">1 · Identify</a> · <a href="images-2.html">2 · Facts</a> · <a href="images-3.html">3 · Hard set</a>. Each round scores separately.</p>
 
   <div class="box goal">
@@ -51,7 +51,7 @@
 <script src="../assets/bank/round2.js"></script>
 <script src="../assets/bank/round3.js"></script>
 <script>
-var ROUND = 'images';   /* which question set over the pictures: images | images2 | images3 */
+var ROUND = 'images3';   /* which question set over the pictures: images | images2 | images3 */
 (function () {
   var bar = document.getElementById('chapters');
   var ids = Bank.ids().filter(function (id) { return (Bank.get(id)[ROUND] || []).length; });

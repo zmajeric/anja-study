@@ -31,10 +31,23 @@
   function sample(kind, perChapter, only) {
     var out = [];
     (only || ids()).forEach(function (id) {
-      var b = chapters[id]; if (!b || !b[kind]) return;
-      shuffle(b[kind]).slice(0, perChapter).forEach(function (it) { var c = Object.assign({}, it); c.chapter = id; out.push(c); });
+      var b = chapters[id]; if (!b) return;
+      var pool = kind === 'images' ? pictures(id) : b[kind];   /* pictures: all rounds that are loaded */
+      if (!pool || !pool.length) return;
+      shuffle(pool).slice(0, perChapter).forEach(function (it) { var c = Object.assign({}, it); c.chapter = id; out.push(c); });
     });
     return shuffle(out);
   }
-  window.Bank = { register: register, get: get, ids: ids, mix: mix, sample: sample, shuffle: shuffle };
+  /* Extra question sets over the same pictures (assets/bank/round2.js, round3.js): appended under `key`
+   * on an already-registered chapter, so the picture is stored once and the rounds stay in separate files. */
+  function extend(id, key, items) { var b = chapters[id]; b[key] = (b[key] || []).concat(items); }
+  /* The picture object of a registered image item, found by file name — rounds reuse it. */
+  function picture(id, name) {
+    var hit = (chapters[id].images || []).filter(function (it) { return it.img.src.indexOf('/' + name + '.') >= 0; })[0];
+    if (!hit) throw new Error('no picture ' + name + ' in ' + id);
+    return hit.img;
+  }
+  /* Every picture question of a chapter across all rounds. */
+  function pictures(id) { var b = chapters[id]; return (b.images || []).concat(b.images2 || [], b.images3 || []); }
+  window.Bank = { register: register, get: get, ids: ids, mix: mix, sample: sample, shuffle: shuffle, extend: extend, picture: picture, pictures: pictures };
 })();
