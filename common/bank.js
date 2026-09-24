@@ -11,7 +11,7 @@
  *                                              — `images` (+ `images2`, `images3` rounds)
  * Every question belongs to a *set*: the chapter's own arrays are the sets `core` (mcq, written)
  * and `round1`/`round2`/`round3` (image). Later additions — a focused quiz, an exam sample — come in
- * through Bank.add(chapter, type, set, items) under their own set name (a date, or `sample`).
+ * through Bank.add(chapter, type, set, items) under their own set name (date and time `2026-09-24-1430`, or `sample`).
  * Lessons read the chapter arrays directly; the shared quiz pages read Bank.items(), which sees every set.
  *
  * Image paths in a bank are written relative to a lesson ('../assets/img/x.jpg'). A page that is not
@@ -76,7 +76,7 @@
   }
 
   /* A new set of questions for a chapter: type is 'mcq' | 'written' | 'image', set a short name
-   * ('2026-09-24', 'sample'). Load the file that calls this after the chapter banks. */
+   * ('2026-09-24-1430', 'sample'). Load the file that calls this after the chapter banks. */
   function add(id, type, set, items) {
     var b = chapters[id];
     if (!b) throw new Error('Bank.add: no chapter ' + id + ' registered');

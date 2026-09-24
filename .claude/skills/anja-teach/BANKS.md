@@ -26,8 +26,8 @@ Any item may carry `notes: [<iPad note ids>]` when it was written from the learn
 - A chapter's first bank: `assets/bank/chN.js`, `Bank.register('chN', { title, lessons, mcq, images, recall, sort })`.
 - Every later set: its own file calling `Bank.add('chN', 'mcq' | 'written' | 'image', '<set>', [...])`,
   listed in `subject.json` → `extraBanks` (loaded after the chapter banks, in order).
-- Set names: `core` / `round1..3` (the chapter's own arrays), a date for a focused quiz, `sample`
-  for exam-sample questions. Give a new set a human label in `subject.json` → `sets`.
+- Set names: `core` / `round1..3` (the chapter's own arrays), the date and time for a focused quiz
+  (`2026-09-24-1430`), `sample` for exam-sample questions. Give a new set a human label in `subject.json` → `sets`.
 
 ## Rules for every item
 
