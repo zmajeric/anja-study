@@ -1,18 +1,60 @@
 {
   "permissions": {
-    "ask": ["WebSearch", "WebFetch"]
+    "ask": [
+      "WebSearch",
+      "WebFetch"
+    ]
   },
   "hooks": {
     "SessionStart": [
-      { "hooks": [{ "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\"" }] }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\""
+          }
+        ]
+      }
     ],
     "UserPromptSubmit": [
-      { "hooks": [{ "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\"" }] }
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\""
+          }
+        ]
+      }
     ],
     "PreToolUse": [
       {
         "matcher": "Read|Write|Edit|MultiEdit|NotebookEdit|Glob|Grep|Bash|PowerShell|WebSearch|WebFetch",
-        "hooks": [{ "type": "command", "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\"" }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.claude/hooks/subject-guard.js\""
+          }
+        ]
       }
     ]
   }

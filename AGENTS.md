@@ -35,6 +35,10 @@ at most:
 - `poglej-agenta`: your own general knowledge. Label each such fact "general knowledge, not from the
   resources".
 
+In a development session, never change a subject's `source/` or `RESOURCES.md` without the user's
+explicit confirmation for that change, and tell the user whenever a subject's cheat sheets
+(`reference/`) change.
+
 ## Layout
 
 ```
