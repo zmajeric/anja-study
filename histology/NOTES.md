@@ -39,7 +39,7 @@ Every lesson from L2 on opens with a 3–5 question spaced review of earlier les
 - Question mix set on 24 Sep 2026 from the old mock exam's defaults (3 text + 1 image MCQ per chapter, 4 written): 70% MCQ · 10% written · 20% image, 40 questions.
 - Option-length rule is enforced: a checker in the session found 52 items where the correct option was the unique longest/shortest; all rebalanced. Re-run the check (iterate `Bank.ids()`, compare word counts) after adding items.
 - Lesson 0012 (eye only) is generated: it filters every bank by an ocular-vocabulary regex (`EYE` in the page) — no separate bank to maintain.
-- Picture banks (round 1): ch1 12 · ch2 8 · ch3 3 (organelle EMs only) · ch4 0 (cilium EM lives in ch5) · ch5 21 · ch6 9 · ch7 7 · ch8 10 · ch9 13.
+- Picture banks (round 1): ch1 12 · ch2 8 · ch3 3 (organelle EMs only) · ch4 0 (cilium EM lives in ch5; 10 image questions on slide diagrams and clinical photos added 24 Sep 2026 as set `2026-09-24-1512`) · ch5 21 · ch6 9 · ch7 7 · ch8 10 · ch9 13.
 - Image → slide mapping (chapter, slide page, embedded image index): see `SPEC` in the extraction script used on 14 Sep; images are in `assets/img/<name>.jpg`, cropped to remove baked-in labels where possible. Labelled ones kept deliberately (as reference figures or because the sample exam itself used a labelled picture): `junctional-complex-em`, `osteons-labelled`, `spongy-bone-labelled`, `endochondral-ossification`, `cardiac-intercalated`, `smooth-muscle`.
 
 ## Progress

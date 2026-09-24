@@ -21,13 +21,14 @@
     { "id": "ch8", "n": 8, "title": "Cartilage & bone", "bank": "assets/bank/ch8.js" },
     { "id": "ch9", "n": 9, "title": "Soft connective tissue", "bank": "assets/bank/ch9.js" }
   ],
-  "extraBanks": ["assets/bank/round2.js", "assets/bank/round3.js"],
+  "extraBanks": ["assets/bank/round2.js", "assets/bank/round3.js", "assets/bank/ch4-2026-09-24-1512.js"],
   "sets": {
     "core": "Core",
     "round1": "Round 1 · Identify",
     "round2": "Round 2 · Facts about the picture",
     "round3": "Round 3 · Look-alikes & hard set",
-    "sample": "Exam sample"
+    "sample": "Exam sample",
+    "2026-09-24-1512": "Kviz 24-09-26 15:12"
   },
   "lessons": [
     { "file": "lessons/0001-reading-a-blood-smear.html", "title": "Reading a blood smear", "chapter": "ch1" },

@@ -1,5 +1,6 @@
-/* Chapter 4 — Embryonic tissue types. Lesson 0005. No picture bank: the exam asks this chapter as sequence,
- * naming and germ-layer questions, not as micrograph identification (the 9+2 / 9+0 cilium EM lives in ch5). */
+/* Chapter 4 — Embryonic tissue types. Lesson 0005. No picture bank here: the exam asks this chapter as sequence,
+ * naming and germ-layer questions, not as micrograph identification (the 9+2 / 9+0 cilium EM lives in ch5).
+ * Image questions on the slide diagrams and clinical photos came later: ch4-2026-09-24-1512.js. */
 Bank.register('ch4', {
   title: 'Embryonic tissues',
   lessons: ['0005-embryonic-tissues.html'],
