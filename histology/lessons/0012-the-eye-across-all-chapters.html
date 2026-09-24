@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 12 · The eye, across all chapters</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 <style>
   .eye-table td:first-child { font-weight: 600; white-space: nowrap; }
 </style>
@@ -72,17 +72,17 @@
   <div id="recall"></div>
 
   <div class="box"><div class="label">Done? Send your teacher the evidence</div><div id="results"></div></div>
-  <div class="box"><div class="label">Primary source</div><p>Skim the "Examples in the Eye" lists and every clinical note in Chapters 2, 5, 6 and 7 of the script — about 15 minutes. Then the <a href="../quizzes/mock-exam.html">mock exam</a>.</p></div>
+  <div class="box"><div class="label">Primary source</div><p>Skim the "Examples in the Eye" lists and every clinical note in Chapters 2, 5, 6 and 7 of the script — about 15 minutes. Then the <a href="../../quiz/mock.html?subject=histology">mock exam</a>.</p></div>
   <div class="box"><div class="label">Stuck?</div><p>Ask your teacher — "which parts of the eye are neural crest?", "give me only the retina questions", "why is the ciliary muscle multiunit?"</p></div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html">Image quiz</a> · <a href="../quizzes/mock-exam.html">Mock exam</a></div>
-    <div class="nav"><a href="0011-soft-connective-tissue.html">← 0011 — Soft connective tissue</a><a href="../quizzes/mock-exam.html">Next: Mock exam →</a></div>
+    <div>Reference sheets: <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology">Image quiz</a> · <a href="../../quiz/mock.html?subject=histology">Mock exam</a></div>
+    <div class="nav"><a href="0011-soft-connective-tissue.html">← 0011 — Soft connective tissue</a><a href="../../quiz/mock.html?subject=histology">Next: Mock exam →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch1.js"></script>
 <script src="../assets/bank/ch2.js"></script>
 <script src="../assets/bank/ch3.js"></script>
@@ -111,5 +111,6 @@ Quiz.recall('#recall', recall, { key: 'L0012:recall' });
 Quiz.results('#results', 'L0012');
 document.querySelector('#mcq').insertAdjacentHTML('beforebegin', '<p class="cite">' + text.length + ' text questions + ' + pics.length + ' picture questions found; ' + recall.length + ' written.</p>');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

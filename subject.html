@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subject</title>
+<link rel="stylesheet" href="common/course.css">
+</head>
+<body>
+<!-- Shared subject home: everything it lists comes from <subject>/subject.json. -->
+<main>
+  <div class="kicker">Subject</div>
+  <h1 id="title"></h1>
+  <p class="subtitle" id="exam"></p>
+
+  <h2>Lessons</h2>
+  <ul class="tiles" id="lessons"></ul>
+
+  <h2>Quizzes</h2>
+  <ul class="tiles" id="quizzes"></ul>
+
+  <h2>Cheat sheets</h2>
+  <ul class="tiles" id="reference"></ul>
+</main>
+<script src="common/quiz.js"></script>
+<script src="common/bank.js"></script>
+<script src="common/course.js" data-home=""></script>
+<script src="common/nav.js"></script>
+<script>
+Course.load().then(function (s) {
+  function list(id, rows) {
+    var ul = document.getElementById(id);
+    if (!rows.length) { ul.innerHTML = '<li class="empty">None yet.</li>'; return; }
+    rows.forEach(function (r) {
+      var li = document.createElement('li');
+      var a = document.createElement('a'); a.href = r.href; a.textContent = r.title; li.appendChild(a);
+      if (r.note) { var c = document.createElement('span'); c.className = 'cite'; c.textContent = r.note; li.appendChild(c); }
+      ul.appendChild(li);
+    });
+  }
+  var chapterName = {}; s.chapters.forEach(function (c) { chapterName[c.id] = 'Ch. ' + c.n + ' · ' + c.title; });
+  document.getElementById('title').textContent = s.title;
+  var m = s.exam.mix;
+  document.getElementById('exam').textContent = 'Exam ' + s.exam.date + ' · ' + m.mcq + '% MCQ · ' + m.written + '% written · ' + m.image + '% image' + (s.status === 'archived' ? ' · archived' : '');
+  list('lessons', s.lessons.map(function (l, i) { return { href: s.dir + l.file, title: (i + 1) + '. ' + l.title, note: chapterName[l.chapter] || 'all chapters' }; }));
+  var q = '?subject=' + encodeURIComponent(s.id);
+  list('quizzes', [
+    ['mixed', 'Mixed quiz', 'MCQ, written and image questions in the exam\'s mix'],
+    ['mcq', 'MCQ quiz', 'text multiple choice only'],
+    ['write', 'Write quiz', 'written answers only'],
+    ['image', 'Image quiz', 'image questions only'],
+    ['mock', 'Mock exam', s.exam.mockLength + ' questions, every chapter']
+  ].map(function (k) { return { href: 'quiz/' + k[0] + '.html' + q, title: k[1], note: k[2] }; }));
+  list('reference', s.reference.map(function (r) { return { href: s.dir + r.file, title: r.title }; }));
+});
+</script>
+</body>
+</html>

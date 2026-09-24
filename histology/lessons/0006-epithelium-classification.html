@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 6 · Classifying epithelia</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -78,7 +78,7 @@
   <h2>6. Drill — MCQ, text and pictures</h2>
   <p>Fourteen micrographs are mixed in — say the two questions out loud before answering each one.</p>
   <div id="mcq"></div>
-  <p>Pictures only: <a href="../quizzes/images.html#ch5">Image quiz — Chapter 5</a>.</p>
+  <p>Pictures only: <a href="../../quiz/image.html?subject=histology&amp;chapter=ch5">Image quiz — Chapter 5</a>.</p>
 
   <h2>7. Drill — write it</h2>
   <div id="recall"></div>
@@ -88,13 +88,13 @@
   <div class="box"><div class="label">Stuck?</div><p>Ask your teacher — "show me pseudostratified vs stratified side by side", "why is the ciliary epithelium not stratified?"</p></div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/epithelia.html">Epithelia cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch5">Image quiz</a></div>
+    <div>Reference sheets: <a href="../reference/epithelia.html">Epithelia cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch5">Image quiz</a></div>
     <div class="nav"><a href="0005-embryonic-tissues.html">← 0005 — Embryonic tissues</a><a href="0007-junctions-and-basement-membrane.html">Next: 0007 — Junctions →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch3.js"></script>
 <script src="../assets/bank/ch4.js"></script>
 <script src="../assets/bank/ch5.js"></script>
@@ -107,5 +107,6 @@ Quiz.mcq('#mcq', Bank.mix(ch5.mcq.slice(0, 23), picsA), { key: 'L0006:mcq' });
 Quiz.recall('#recall', ch5.recallA, { key: 'L0006:recall' });
 Quiz.results('#results', 'L0006');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

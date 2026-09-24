@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anja · Study</title>
+<link rel="stylesheet" href="common/course.css">
+</head>
+<body>
+<main>
+  <div class="kicker">Study workspace</div>
+  <h1>Subjects</h1>
+  <p class="subtitle">One course per exam. Pick a subject for its lessons, reference sheets and quizzes.</p>
+  <ul class="tiles" id="subjects"></ul>
+</main>
+<script src="common/bank.js"></script>
+<script src="common/course.js" data-home=""></script>
+<script>
+Course.subjects().then(function (list) {
+  var ul = document.getElementById('subjects');
+  list.forEach(function (s) {
+    var li = document.createElement('li');
+    var a = document.createElement('a'); a.href = 'subject.html?subject=' + encodeURIComponent(s.id); a.textContent = s.title;
+    li.appendChild(a);
+    if (s.status || s.note) { var c = document.createElement('span'); c.className = 'cite'; c.textContent = [s.status, s.note].filter(Boolean).join(' — '); li.appendChild(c); }
+    ul.appendChild(li);
+  });
+});
+</script>
+</body>
+</html>

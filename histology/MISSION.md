@@ -1,5 +1,7 @@
 # Mission: Histology (first year, Hochschule Aalen)
 
+> **Status: passed, 20 September 2026. Archived.** Kept as the worked example subject. The exam numbers now live in `subject.json` (question mix 70% MCQ · 10% written · 20% image, 40-question mock exam).
+
 ## Why
 Pass the first-year histology exam on **Sunday 20 September 2026** (Prof. Thomas F. Freddo's lectures, optometry programme). The exam is in English, roughly 90% multiple choice and 10% short written answers. Six days of 15–20 minute sessions are available.
 

@@ -1,3 +1,6 @@
 # Office lock files
 .~lock.*#
 ~$*
+
+# Subject-guard hook: per-session active subject
+.claude/state/
