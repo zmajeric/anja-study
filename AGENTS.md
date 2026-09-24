@@ -4,18 +4,24 @@ Study courses, one **subject** per top-level directory (`histology/` is the firs
 example). Terms (subject, chapter, lesson, the quiz kinds, question mix, resource, exam sample) are
 defined in `CONTEXT.md`; use them as defined there.
 
-## One subject per session
+## Study session or development session
 
-A session works on exactly one subject, the **active subject**, fixed for the whole session:
+Every session is one of two kinds, fixed once chosen, and only the user chooses:
 
-- started inside `<subject>/` → that subject;
-- started at the repo root → ask the user which subject; they answer `predmet <name>`. Wait for that
-  answer before touching any subject.
+- **Study session** (the default): exactly one **active subject**. Started inside `<subject>/` →
+  that subject. Started at the repo root → first ask *"Is this a study session, and for which
+  subject?"*; the user answers `predmet <name>` (or just the name) on a line of its own.
+  Read and write only the active subject and the shared parts (`common/`, `quiz/`, `docs/`, the root
+  files). When the user asks about another subject, tell them it needs a new session started in that
+  subject's directory, and say so plainly whenever anything from another subject would enter this
+  session.
+- **Development session**: for work on the workspace itself, root only. When the user says a root
+  session is for development, ask them to confirm by typing `development` on a line of its own.
+  Every subject is then open; keep each subject's content inside its own subject.
 
-Read and write only the active subject and the shared parts (`common/`, `quiz/`, `docs/`, the root
-files). When the user asks about another subject, tell them it needs a new session started in that
-subject's directory, and say so plainly whenever anything from another subject would enter this
-session. In Claude Code a hook (`.claude/hooks/subject-guard.js`) enforces this.
+Wait for the user's line before touching any subject. In Claude Code a hook
+(`.claude/hooks/subject-guard.js`) enforces all of this and shows the session kind on every reply of
+a development session.
 
 ## Sources
 

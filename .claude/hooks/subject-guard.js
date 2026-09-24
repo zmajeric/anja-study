@@ -1,16 +1,20 @@
 #!/usr/bin/env node
-/* One subject per session, and no web without the keyword. Wired in .claude/settings.json for
+/* Session kinds, and no web without the keyword. Wired in .claude/settings.json for
  * SessionStart, UserPromptSubmit and PreToolUse; every subject carries an identical
  * <subject>/.claude/settings.json, because Claude Code reads settings only from the directory a
  * session starts in.
  *
  * A subject is any top-level directory of the repo that is not hidden and not in SHARED.
- * The active subject is fixed per session and stored in .claude/state/<session_id>.json:
- *   - session started inside a subject → that subject;
- *   - session started at the root      → none, until the user types `predmet <name>`.
- * While no subject is active, every tool call that touches a subject is refused; once one is,
- * touching any other subject is refused. Web tools are refused unless the user's current message
- * contains `poglej-internet`.
+ * Every session is one of two kinds (CONTEXT.md), fixed once chosen and stored in
+ * .claude/state/<session_id>.json as {mode, active}:
+ *   - study session (the default): one active subject; touching any other subject is refused.
+ *     Started inside a subject -> that subject. Started at the root -> the user names it on a line
+ *     of its own: `predmet <name>` or just `<name>`.
+ *   - development session: root only, confirmed by the user typing `development` on a line of its
+ *     own; every subject is open, and every reply carries a notice saying so.
+ * Until a root session is one or the other, every tool call that touches a subject is refused.
+ * The agent cannot choose either: only the user's own message does. Web tools are refused unless
+ * the user's current message contains `poglej-internet`, in both kinds.
  *
  * Fails open: a crash here prints nothing and exits 0, so a broken hook never locks the session.
  */
@@ -71,15 +75,20 @@ function staleNotes(subject) {
 function sessionStart(input) {
   const cwd = path.resolve(input.cwd || process.cwd());
   const prev = load(input.session_id);
-  if (prev && input.source !== 'startup') {           /* resume / clear / compact: keep the pin */
+  if (prev && input.source !== 'startup') {           /* resume / clear / compact: keep the kind */
+    if (prev.mode === 'development') return context('SessionStart', DEV_TEXT, DEV_NOTICE);
     if (prev.active) return context('SessionStart', activeText(prev.active));
-    return context('SessionStart', noSubjectText());
+    return context('SessionStart', undecidedText());
   }
   const active = subjectOf(cwd);
-  save(input.session_id, { active, web: false, agent: false });
-  if (active) return context('SessionStart', activeText(active), 'Aktivni predmet: ' + active);
-  return context('SessionStart', noSubjectText(), 'Ni aktivnega predmeta. Napiši: predmet <ime>  (' + subjects().join(', ') + ')');
+  save(input.session_id, { mode: active ? 'study' : null, active, web: false, agent: false });
+  if (active) return context('SessionStart', activeText(active), 'Study session · ' + active);
+  return context('SessionStart', undecidedText(), 'Study session — which subject? Type: predmet <ime>  (' + subjects().join(', ') + ')');
 }
+const DEV_NOTICE = 'Development session: all subjects open';
+const DEV_TEXT = 'This is a development session, confirmed by the user: work on the workspace itself (common/, quiz/, ' +
+  '.claude/, docs, and any subject). Every subject is open to read and write. Keep each subject\'s content in its ' +
+  'own subject: no facts, notes or questions from one subject go into another. Web access still needs `poglej-internet`.';
 function activeText(s) {
   const extra = unregistered(s);
   return 'Active subject for this whole session: ' + s + '. Work only inside ' + s + '/ and the shared folders ' +
@@ -90,26 +99,37 @@ function activeText(s) {
     (staleNotes(s).length ? '\nEdited resources with iPad notes not yet extracted: ' + staleNotes(s).join(', ') +
       '. Mention them to the user and suggest `/anja-teach opombe`.' : '');
 }
-function noSubjectText() {
-  return 'No active subject. Before doing anything else, ask the user which subject this session is for; they ' +
-    'answer by typing `predmet <name>`. Subjects: ' + subjects().join(', ') + '. Until then every tool call ' +
-    'touching a subject directory is blocked. You cannot set the subject yourself.';
+function undecidedText() {
+  return 'This root session has no kind yet. Before doing anything else, ask the user exactly: "Is this a study ' +
+    'session, and for which subject?" (subjects: ' + subjects().join(', ') + '). They choose a subject by typing ' +
+    '`predmet <name>` (or just the name) on a line of its own. If they say instead that this is a development ' +
+    'session, ask them to confirm by typing `development` on a line of its own. Until one of those lines arrives, ' +
+    'every tool call touching a subject directory is blocked; you cannot choose the kind or the subject yourself.';
 }
 
 function promptSubmit(input) {
   const prompt = String(input.prompt || '');
-  const st = load(input.session_id) || { active: subjectOf(path.resolve(input.cwd || process.cwd())) };
+  const st = load(input.session_id) || (a => ({ mode: a ? 'study' : null, active: a }))(subjectOf(path.resolve(input.cwd || process.cwd())));
+  if (!st.mode && st.active) st.mode = 'study';          /* state written before session kinds existed */
   st.web = /poglej-internet/i.test(prompt);
   st.agent = /poglej-agenta/i.test(prompt);
   const notes = [];
   let notice = null;
-  const m = prompt.match(/\bpredmet\s+([A-Za-z0-9_-]+)/i);
-  if (m) {
+  /* Choices count only as a line of their own: prose that mentions the words is not a choice. */
+  const dev = /^\s*development\s*$/im.test(prompt);
+  const m = prompt.match(/^\s*predmet\s+([A-Za-z0-9_-]+)\s*$/im) ||
+    prompt.split(/\r?\n/).map(l => l.trim()).filter(l => subjects().includes(l)).map(l => [l, l])[0];
+  if (dev) {
+    if (!st.mode) { st.mode = 'development'; st.active = null; }
+    else if (st.mode === 'study') notes.push('The user typed `development`, but this is a study session for "' + st.active + '" and stays one. Tell them a development session starts fresh at the repo root.');
+  } else if (m) {
     const want = m[1];
-    if (!subjects().includes(want)) notes.push('The user named subject "' + want + '", which does not exist. Subjects: ' + subjects().join(', ') + '. To start a new subject, create its directory, add resources, and start a session there.');
-    else if (!st.active) { st.active = want; notice = 'Aktivni predmet: ' + want; notes.push(activeText(want)); }
+    if (st.mode === 'development') notes.push('The user named subject "' + want + '", but this is a development session and stays one. Tell them a study session for ' + want + ' needs a new session.');
+    else if (!subjects().includes(want)) notes.push('The user named subject "' + want + '", which does not exist. Subjects: ' + subjects().join(', ') + '. To start a new subject, create its directory, add resources, and start a session there.');
+    else if (!st.active) { st.mode = 'study'; st.active = want; notice = 'Study session · ' + want; notes.push(activeText(want)); }
     else if (st.active !== want) notes.push('The user asked for subject "' + want + '" but this session is fixed to "' + st.active + '". Do not switch: tell them one subject per session, and to start a new session in ' + want + '/.');
-  } else if (!st.active) notes.push(noSubjectText());
+  } else if (!st.mode) notes.push(undecidedText());
+  if (st.mode === 'development') { notice = DEV_NOTICE; notes.push(DEV_TEXT); }
   if (st.web) notes.push('`poglej-internet`: web search is allowed for this message only, scoped to one chapter at most (ask which, if unclear). Record every source used in RESOURCES.md, marked "web · chapter N · ' + new Date().toISOString().slice(0, 10) + '", and label web-sourced facts as such in anything you write.');
   if (st.agent) notes.push('`poglej-agenta`: your own general knowledge may be used for this message only, scoped to one chapter at most. Label every such fact "general knowledge, not from the resources".');
   const tag = prompt.match(/ipad-note:[A-Za-z]+(?:-[A-Za-z]+)?/i);
@@ -128,7 +148,7 @@ function mentioned(cmd) {
 const RECURSIVE = /\b(rg|grep\s+-\w*r|find|ls\s+-\w*R|tree|git\s+grep|Get-ChildItem\b[^|;]*-Recurse|gci\b[^|;]*-Recurse|dir\b[^|;]*\/s|Select-String)\b/i;
 
 function preTool(input) {
-  const st = load(input.session_id) || { active: null, web: false };
+  const st = load(input.session_id) || { mode: null, active: null, web: false };
   const tool = input.tool_name, ti = input.tool_input || {};
   const cwd = path.resolve(input.cwd || process.cwd());
 
@@ -136,6 +156,7 @@ function preTool(input) {
     if (!st.web) deny('Web access is off. Only the subject\'s own resources are used; the user enables a chapter-scoped web search by writing `poglej-internet` in their message.');
     return out({});
   }
+  if (st.mode === 'development') return out({});
 
   const touched = new Set();
   let wholeRepo = false;
@@ -165,7 +186,7 @@ function preTool(input) {
   }
 
   if (!st.active) {
-    if (touched.size || wholeRepo) deny('No active subject yet. Ask the user which subject this session is for; they must type `predmet <name>`. You cannot set it yourself.');
+    if (touched.size || wholeRepo) deny('This root session is neither a study session nor a development session yet. Ask the user: "Is this a study session, and for which subject?" They answer `predmet <name>`, or confirm a development session by typing `development`. You cannot choose it yourself.');
     return out({});
   }
   const others = [...touched].filter(s => s !== st.active);

@@ -18,15 +18,18 @@ lekcija, vrste kvizov, razmerje vprašanj …) je v [`CONTEXT.md`](CONTEXT.md).
 
 Vse spodaj napišeš Claudu v Claude Code. Delaj v mapi predmeta (npr. odpri sejo v `histology/`).
 
-### Ena seja = en predmet
+### Dve vrsti seje: učna in razvojna
 
-- Seja, odprta v mapi predmeta, dela samo s tem predmetom.
-- Seja, odprta v korenu repozitorija, najprej vpraša, kateri predmet. Odgovoriš:
+**Učna seja** (study session, privzeta) dela z enim samim predmetom.
+
+- Seja, odprta v mapi predmeta, je učna seja za ta predmet.
+- Seja, odprta v korenu repozitorija, najprej vpraša *"Is this a study session, and for which
+  subject?"*. Odgovoriš v svoji vrstici:
   ```
   predmet histology
   ```
-  Dokler tega ne napišeš, se agent ne more dotakniti nobenega predmeta. Predmeta med sejo ni
-  mogoče zamenjati: za drug predmet odpri novo sejo.
+  (ali samo `histology`). Dokler tega ne napišeš, se agent ne more dotakniti nobenega predmeta.
+  Predmeta med sejo ni mogoče zamenjati: za drug predmet odpri novo sejo.
 - Če bi agent posegel v drug predmet, ga varovalo ustavi in ti to jasno pove.
 
 ### Nov predmet

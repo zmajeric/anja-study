@@ -11,10 +11,19 @@ One exam course, living in one top-level directory (e.g. `histology/`) with its 
 resources, lessons and quizzes.
 _Avoid_: course, workspace, lesson (for the directory)
 
+**Study session**:
+The default kind of session: it works on one active subject and nothing from any other subject.
+Another subject means a new session.
+_Avoid_: learning session
+
 **Active subject**:
-The one subject a session works on, fixed for the whole session: taken from the directory the
-session started in, or named by the user with `predmet <name>`. Another subject means a new
-session.
+The one subject a study session works on, fixed for the whole session: taken from the directory
+the session started in, or named by the user with `predmet <name>`.
+
+**Development session**:
+A session started at the repo root to work on the workspace itself, open to every subject. Only
+the user declares it, by typing `development`; it never becomes a study session.
+_Avoid_: dev mode, admin session
 
 **Chapter**:
 A numbered section of a subject's source material; the unit a focused quiz or a web search is
