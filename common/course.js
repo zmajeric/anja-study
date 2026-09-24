@@ -13,7 +13,8 @@
  * sub-path on GitHub Pages, and from / by .claude/serve.js.
  */
 (function () {
-  var HOME = document.currentScript.getAttribute('data-home') || '../';
+  var HOME = document.currentScript.getAttribute('data-home');
+  if (HOME == null) HOME = '../';                  /* "" (a root page) is a real value, not a default */
 
   function param(name) { return new URLSearchParams(location.search).get(name); }
   function setParams(obj) {
