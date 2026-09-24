@@ -49,7 +49,8 @@ Course.load().then(function (s) {
     ['mcq', 'MCQ quiz', 'text multiple choice only'],
     ['write', 'Write quiz', 'written answers only'],
     ['image', 'Image quiz', 'image questions only'],
-    ['mock', 'Mock exam', s.exam.mockLength + ' questions, every chapter']
+    ['mock', 'Mock exam', s.exam.mockLength + ' questions, every chapter'],
+    ['custom', 'Custom quiz', 'your own count of each type, saved to revisit']
   ].map(function (k) { return { href: 'quiz/' + k[0] + '.html' + q, title: k[1], note: k[2] }; }));
   list('reference', s.reference.map(function (r) { return { href: s.dir + r.file, title: r.title }; }));
 });

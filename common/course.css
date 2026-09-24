@@ -153,6 +153,12 @@ footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule
 .tiles li { padding: .5rem 0; border-bottom: 1px solid var(--rule); }
 .tiles .cite { margin-left: .5rem; }
 .empty { color: var(--muted); font-style: italic; }
+.saved li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; font-family: var(--sans); }
+.saved a { font-family: var(--mono); }
+.saved a.on { color: var(--accent); font-weight: 600; }
+.saved .del { margin-left: auto; font: inherit; font-size: .8rem; padding: .15rem .5rem; cursor: pointer; border: 1px solid var(--rule); border-radius: 5px; background: #fdfcf8; color: var(--muted); }
+.saved .note, #counts .avail { font-size: .75rem; color: var(--muted); }
+.setup#counts input { width: 4rem; }
 
 /* Subject menu bar (nav.js) — on every page of a subject */
 .topbar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.1rem;

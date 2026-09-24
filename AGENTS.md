@@ -42,9 +42,10 @@ explicit confirmation for that change, and tell the user whenever a subject's ch
 ## Layout
 
 ```
-common/            the shared engine: course.css, quiz.js, bank.js, course.js, quizpage.js, nav.js, notes.js
+common/            the shared engine: course.css, quiz.js, bank.js, course.js, quizpage.js, customquiz.js, nav.js, notes.js
 common/tools/      extract-images.py (resources → assets/img/source/), extract-notes.py (iPad notes)
-quiz/              the five shared quiz pages: mcq, write, image, mixed, mock  (?subject=&chapter=&set=&mine=)
+quiz/              the shared quiz pages: mcq, write, image, mixed, mock  (?subject=&chapter=&set=&mine=),
+                   custom  (?subject=&quiz=; papers saved in the browser)
 index.html         subject list (from subjects.json) · subject.html: one subject's home (from subject.json)
 notes.html         the learner's iPad notes, grouped by chapter  (?subject=&tag=ipad-note:…)
 <subject>/         MISSION, NOTES, GLOSSARY, RESOURCES, subject.json, source/, lessons/, reference/,

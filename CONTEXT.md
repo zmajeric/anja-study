@@ -77,6 +77,11 @@ text meet.
 **Mock exam**:
 A mixed quiz drawn at random from every chapter, sized like the real exam.
 
+**Custom quiz**:
+A quiz the learner composes by choosing how many questions of each type (MCQ, written, image MCQ,
+image written) to draw. Each generated paper is saved in the browser, labelled with when it was made,
+so it can be reopened.
+
 **Question mix**:
 A subject's percentages of MCQs, written questions and image questions, set by the user when
 the subject is created; it governs lesson quizzes, focused mixed quizzes and the mock exam.

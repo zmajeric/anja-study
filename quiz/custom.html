@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom quiz</title>
+<link rel="stylesheet" href="../common/course.css">
+</head>
+<body>
+<!-- Custom quiz page: all behaviour lives in common/customquiz.js. -->
+<main>
+  <div class="kicker" id="kicker"></div>
+  <h1>Custom quiz</h1>
+  <p class="subtitle">Choose how many questions of each type you want and generate a paper. Every paper you generate is saved here, newest first, so you can come back to it.</p>
+
+  <div class="picker-label">Saved quizzes</div>
+  <ul class="tiles saved" id="saved"></ul>
+  <p class="empty" id="saved-none">None yet — generate one below.</p>
+
+  <div class="picker-label">Chapter</div>
+  <div id="chapters"></div>
+  <div class="picker-label" id="sets-label" hidden>Question set</div>
+  <div id="sets" hidden></div>
+  <div class="picker-label" id="mine-label" hidden>Source</div>
+  <div id="mine"></div>
+
+  <div class="picker-label">Questions of each type</div>
+  <div class="setup" id="counts"></div>
+  <div class="setup">
+    <button id="generate" type="button">Generate new quiz</button>
+    <span class="cite" id="msg"></span>
+  </div>
+
+  <div id="paper" hidden>
+    <h2 id="paper-title"></h2>
+    <p class="cite" id="paper-desc"></p>
+    <section id="part-mcq"><h2>Answer by choice</h2><div id="mcq"></div></section>
+    <section id="part-recall"><h2>Answer in words</h2><p>Write or say your answer first, then reveal.</p><div id="recall"></div></section>
+
+    <div class="box">
+      <div class="label">Done? Send your teacher the evidence</div>
+      <p>Copies this quiz's score. Paste it into the chat.</p>
+      <div id="results"></div>
+      <p class="cite" id="breakdown"></p>
+    </div>
+  </div>
+
+  <footer><div id="nav"></div></footer>
+</main>
+
+<script src="../common/quiz.js"></script>
+<script src="../common/bank.js"></script>
+<script src="../common/course.js" data-home="../"></script>
+<script src="../common/customquiz.js"></script>
+<script src="../common/nav.js"></script>
+<script>CustomQuiz.run();</script>
+</body>
+</html>

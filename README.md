@@ -160,7 +160,7 @@ sporočilo in največ za eno poglavje:
 
 ### Kvizi na strani
 
-Na strani predmeta je pet vrst kvizov, ki so enaki za vse predmete:
+Na strani predmeta je šest vrst kvizov, ki so enaki za vse predmete:
 
 | Kviz | Vsebuje |
 |---|---|
@@ -169,6 +169,7 @@ Na strani predmeta je pet vrst kvizov, ki so enaki za vse predmete:
 | Write quiz | samo pisna vprašanja |
 | Image quiz | samo slikovna vprašanja |
 | Mock exam | naključen izpit iz vseh poglavij, dolžine in razmerja pravega izpita |
+| Custom quiz | sama določiš število vprašanj vsake vrste; vsak ustvarjen kviz se shrani v brskalnik (z datumom in uro) in ga lahko odpreš znova |
 
 Poglavje in niz vprašanj izbereš na strani; naslov si zapomni izbiro, npr.
 `quiz/image.html?subject=histology&chapter=ch5&set=round2`.
@@ -185,7 +186,7 @@ Poglavje in niz vprašanj izbereš na strani; naslov si zapomni izbiro, npr.
 | Postopek za nov vir / kviz | `.claude/skills/anja-teach/NOV-VIR.md`, `KVIZ.md` | Uredi besedilo; velja za vse predmete. |
 | Pravila za agente (viri, en predmet, ključne besede) | `AGENTS.md` | Velja za Claude in druge agente. |
 | Izgled vseh strani | `common/course.css` | Ena datoteka za vse predmete. |
-| Obnašanje kvizov | `common/quiz.js`, `common/bank.js`, `common/quizpage.js` | Ena kopija za vse predmete. |
+| Obnašanje kvizov | `common/quiz.js`, `common/bank.js`, `common/quizpage.js`, `common/customquiz.js` | Ena kopija za vse predmete. |
 | Varovalo "en predmet na sejo" in spletni dostop | `.claude/hooks/subject-guard.js`, `.claude/settings.json` | Vsak predmet ima enako kopijo `settings.json` v `<predmet>/.claude/`; spremeni vse skupaj. |
 | Branje slik in opomb iz virov | `common/tools/extract-images.py`, `common/tools/extract-notes.py` | Npr. najmanjša velikost slike (`MIN_SIDE`) ali barvna paleta opomb (`PALETTE`). |
 | Postopek za opombe | `.claude/skills/anja-teach/OPOMBE.md` | Uredi besedilo; velja za vse predmete. |
@@ -199,7 +200,7 @@ Vse nastavitve so v repozitoriju: ko ga potegneš na drug računalnik, deluje en
 AGENTS.md  CLAUDE.md  CONTEXT.md  README.md
 index.html  subject.html  notes.html  subjects.json
 common/            skupni izgled, logika kvizov in opomb; tools/ = skripti za slike in opombe
-quiz/              pet skupnih strani s kvizi
+quiz/              šest skupnih strani s kvizi
 docs/adr/          zakaj je nekaj narejeno tako
 .claude/           varovalo, skill /anja-teach, lokalni strežnik
 <predmet>/         MISSION.md  NOTES.md  GLOSSARY.md  RESOURCES.md  subject.json

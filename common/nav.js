@@ -71,7 +71,7 @@
       return { href: url(dir + l.file), title: (i + 1) + '. ' + l.title, note: chapter[l.chapter] || 'all' };
     })));
     bar.appendChild(menu('Quizzes', [
-      ['mixed', 'Mixed quiz'], ['mcq', 'MCQ quiz'], ['write', 'Write quiz'], ['image', 'Image quiz'], ['mock', 'Mock exam']
+      ['mixed', 'Mixed quiz'], ['mcq', 'MCQ quiz'], ['write', 'Write quiz'], ['image', 'Image quiz'], ['mock', 'Mock exam'], ['custom', 'Custom quiz']
     ].map(function (k) { return { href: url('quiz/' + k[0] + '.html' + q), title: k[1] }; })));
     bar.appendChild(menu('Cheat sheets', s.reference.map(function (r) { return { href: url(dir + r.file), title: r.title }; })));
     var notes = el('a', { class: 'item', href: url('notes.html' + q) }, 'My notes');
