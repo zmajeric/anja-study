@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 9 · Muscle</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -83,7 +83,7 @@
 
   <h2>6. Drill — MCQ, text and pictures</h2>
   <div id="mcq"></div>
-  <p>Pictures only: <a href="../quizzes/images.html#ch7">Image quiz — Chapter 7</a>.</p>
+  <p>Pictures only: <a href="../../quiz/image.html?subject=histology&amp;chapter=ch7">Image quiz — Chapter 7</a>.</p>
 
   <h2>7. Drill — write it</h2>
   <p>All seven of the script's practice questions.</p>
@@ -94,13 +94,13 @@
   <div class="box"><div class="label">Stuck?</div><p>Ask your teacher — "walk me through the cross-bridge cycle again", "unitary vs multiunit — more examples".</p></div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/muscle.html">Muscle cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch7">Image quiz</a></div>
+    <div>Reference sheets: <a href="../reference/muscle.html">Muscle cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch7">Image quiz</a></div>
     <div class="nav"><a href="0008-neurons-and-glia.html">← 0008 — Neurons &amp; glia</a><a href="0010-cartilage-and-bone.html">Next: 0010 — Cartilage &amp; bone →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch6.js"></script>
 <script src="../assets/bank/ch7.js"></script>
 <script>
@@ -111,5 +111,6 @@ Quiz.mcq('#mcq', Bank.mix(ch7.mcq, ch7.images), { key: 'L0009:mcq' });
 Quiz.recall('#recall', ch7.recall, { key: 'L0009:recall' });
 Quiz.results('#results', 'L0009');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

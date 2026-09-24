@@ -27,18 +27,17 @@ Every lesson from L2 on opens with a 3–5 question spaced review of earlier les
 - Ch9: Freddo's convention is fibro**cyte** = active, fibro**blast** = inactive (reverse of many textbooks). Teach Freddo's version.
 
 ## Workspace conventions
-- Lessons: `lessons/NNNN-slug.html`, link `../assets/course.css` and `../assets/quiz.js`.
+- Lessons: `lessons/NNNN-slug.html`, `<html data-subject="histology">`, linking `../../common/course.css`, `../../common/quiz.js`, `../../common/bank.js` and the chapter banks in `../assets/bank/`. Shared layout rules: root `AGENTS.md`.
 - Reference sheets: `reference/<chapter-slug>.html`; glossary in `reference/glossary.html`, extended every lesson.
 - Quiz answers must have equal word counts (no formatting clues).
-- Drill components in `assets/quiz.js`: `Quiz.mcq`, `Quiz.recall`, `Quiz.sort` (classification, reshuffles → good for interleaving), `Quiz.results`. Result keys: `L000N:review|mcq|sort|recall`.
+- Drill components in `common/quiz.js`: `Quiz.mcq`, `Quiz.recall`, `Quiz.sort` (classification, reshuffles → good for interleaving), `Quiz.results`. Result keys: `L000N:review|mcq|sort|recall`, stored under `histology:`.
 - Reusable diagrams live in `assets/img/` (e.g. `hematopoiesis-tree.svg`) and are `<img>`-ed by both lesson and reference sheet.
 
-## Question banks and quizzes (added 14 Sep, afternoon)
-- All questions live in `assets/bank/chN.js` (`Bank.register`), not in lessons. Shapes: `mcq` (text), `images` (picture items with `img`), `recall`, `sort`; chapters split over two lessons use `recall1/2`, `recallA/B`, `sortA/B`, and `images[].part`.
-- Three views of one bank: the lesson's mixed MCQ (`Bank.mix(text, images)`), `quizzes/images.html` (pictures only, per chapter or all), `quizzes/mock-exam.html` (random paper, ~90% MCQ mixed + written).
-- Result keys: lessons `L000N:*`, image quiz `IMG:chN:mcq`, mock `MOCK:*`.
+## Question banks and quizzes
+- All questions live in `assets/bank/chN.js` (`Bank.register`), not in lessons. Shapes: `mcq` (text), `images` (image MCQs with `img`), `recall` (written), `sort`; chapters split over two lessons use `recall1/2`, `recallA/B`, `sortA/B`, and `images[].part`.
+- The shared quiz pages (`/quiz/*.html?subject=histology`) read every bank listed in `subject.json`. Sets: `core` (text MCQ, written), `round1` (identify), `round2` (`assets/bank/round2.js`, facts about the picture), `round3` (`round3.js`, look-alikes, NOT-true, consequences). Old per-subject quiz pages (`quizzes/images*.html`, `mock-exam.html`) were replaced by these on 24 Sep 2026; their stored scores (`IMG:`, `IMG2:`, `IMG3:`, `MOCK:`) are no longer read.
+- Question mix set on 24 Sep 2026 from the old mock exam's defaults (3 text + 1 image MCQ per chapter, 4 written): 70% MCQ · 10% written · 20% image, 40 questions.
 - Option-length rule is enforced: a checker in the session found 52 items where the correct option was the unique longest/shortest; all rebalanced. Re-run the check (iterate `Bank.ids()`, compare word counts) after adding items.
-- Picture rounds: `assets/bank/round2.js` (facts about the picture) and `round3.js` (look-alikes, NOT-true, consequences) add `images2`/`images3` over the same pictures via `Bank.extend`/`Bank.picture`; pages `quizzes/images-2.html`, `images-3.html` (keys `IMG2:`, `IMG3:`). `Bank.sample('images')` and `Bank.pictures(id)` draw from all loaded rounds.
 - Lesson 0012 (eye only) is generated: it filters every bank by an ocular-vocabulary regex (`EYE` in the page) — no separate bank to maintain.
 - Picture banks (round 1): ch1 12 · ch2 8 · ch3 3 (organelle EMs only) · ch4 0 (cilium EM lives in ch5) · ch5 21 · ch6 9 · ch7 7 · ch8 10 · ch9 13.
 - Image → slide mapping (chapter, slide page, embedded image index): see `SPEC` in the extraction script used on 14 Sep; images are in `assets/img/<name>.jpg`, cropped to remove baked-in labels where possible. Labelled ones kept deliberately (as reference figures or because the sample exam itself used a labelled picture): `junctional-complex-em`, `osteons-labelled`, `spongy-bone-labelled`, `endochondral-ossification`, `cardiac-intercalated`, `smooth-muscle`.

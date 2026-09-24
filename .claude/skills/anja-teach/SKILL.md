@@ -1,22 +1,34 @@
 ---
-name: teach
-description: Teach the user a new skill or concept, within this workspace.
-disable-model-invocation: true
-argument-hint: "What would you like to learn about?"
+name: anja-teach
+description: Teach a subject in this repo. Use for a lesson, a new subject (a subject directory without MISSION.md), `nov-vir` (a new resource or exam sample in source/), `kviz` (a focused quiz for a chapter or all chapters), `opombe` or an `ipad-note:` tag (the learner's iPad notes).
+argument-hint: "[nov-vir | kviz <poglavje|vse> [mcq|slike|pisno|mešano|ipad-note:…] [n] | opombe | what to learn]"
 ---
 
 The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
 
+## Branches
+
+Pick the branch from the arguments (`$ARGUMENTS`) or the user's words, then read its file before acting:
+
+- **New subject**: the active subject has no `MISSION.md` → [NEW-SUBJECT.md](./NEW-SUBJECT.md).
+- **`nov-vir`**, "dodal sem vir", a new file in `source/` → [NOV-VIR.md](./NOV-VIR.md).
+- **`kviz`**, "naredi kviz …", more questions for a chapter → [KVIZ.md](./KVIZ.md).
+- **`opombe`**, an `ipad-note:` tag, a `*_edited.pdf` in `source/` → [OPOMBE.md](./OPOMBE.md).
+- Anything else → a lesson, per the rest of this file.
+
+Every branch that writes questions follows [BANKS.md](./BANKS.md). The repo's rules (one subject per session, sources, keywords) live in the root `AGENTS.md` and bind every branch; the terms (subject, chapter, lesson, quiz kinds, question mix) are defined in the root `CONTEXT.md`.
+
 ## Teaching Workspace
 
-Treat the current directory as a teaching workspace. The state of their learning is captured in this directory in several files:
+The workspace is the **active subject's directory** (`<subject>/`), even when the session started at the repo root. The state of their learning is captured in that directory in several files:
 
 - `MISSION.md`: A document capturing the _reason_ the user is interested in the topic. This should be used to ground all teaching. Use the format in [MISSION-FORMAT.md](./MISSION-FORMAT.md).
 - `./reference/*.html`: A directory of reference materials. These are the compressed learnings from the lessons - cheat sheets, reference algorithms, syntax, yoga poses, glossaries. They are the raw units of learning. They should be beautiful documents which print out well, and are designed for quick reference.
 - `RESOURCES.md`: A list of resources which can be explored to ground your teaching in contextual knowledge, or to acquire knowledge and wisdom. Use the format in [RESOURCES-FORMAT.md](./RESOURCES-FORMAT.md).
 - `./learning-records/*.md`: A directory of learning records, which capture what the user has learned. These are loosely equivalent to architectural decision records in software development - they capture non-obvious lessons and key insights that may need to be revised later, or drive future sessions. These should be used to calculate the zone of proximal development. They are titled `0001-<dash-case-name>.md`, where the number increments each time. Use the format in [LEARNING-RECORD-FORMAT.md](./LEARNING-RECORD-FORMAT.md).
 - `./lessons/*.html`: A directory of lessons. A **lesson** is a single, self-contained HTML output that teaches one tightly-scoped thing tied to the mission. This is the primary unit of teaching in this workspace.
-- `./assets/*`: Reusable **components** shared across lessons. See [Assets](#assets).
+- `./assets/*`: this subject's own content that pages load: question banks (`assets/bank/`) and images (`assets/img/`). See [Assets](#assets).
+- `./subject.json`: the subject's settings (exam, question mix, chapters, lessons, reference sheets). The shared pages read it; update it whenever you add a lesson, reference sheet, chapter or bank file.
 - `NOTES.md`: A scratchpad for you to jot down user preferences, or working notes.
 
 ## Philosophy
@@ -27,7 +39,7 @@ To learn at a deep level, the user needs three things:
 - **Skills**, acquired through highly-relevant interactive lessons devised by you, based on the knowledge
 - **Wisdom**, which comes from interacting with other learners and practitioners
 
-Before the `RESOURCES.md` is well-populated, your focus should be to find high-quality resources which will help the user acquire knowledge. Never trust your parametric knowledge.
+Knowledge comes only from the subject's **resources**: the files the user put in `source/`, listed in `RESOURCES.md`. Your parametric knowledge and the web are closed sources unless the user opens one with a keyword (`poglej-agenta`, `poglej-internet`; see the root `AGENTS.md`). When the resources leave a gap, say so and record it under `## Gaps` in `RESOURCES.md`, rather than filling it.
 
 Some topics may require more skills than knowledge. Learning more about theoretical physics might be more knowledge-based. For yoga, more skills-based.
 
@@ -56,17 +68,17 @@ If possible, open the lesson file for the user by running a CLI command.
 
 Each lesson should link via HTML anchors to other lessons and reference documents.
 
-Each lesson should recommend a primary source for the user to read or watch. This should be the most high-quality, high-trust resource you found on the topic.
+Each lesson should recommend a primary source for the user to read or watch: the most relevant resource in `RESOURCES.md`, down to the section or page.
 
 Each lesson should contain a reminder to ask followup questions to the agent. The agent is their teacher, and can assist with anything that's unclear.
 
 ## Assets
 
-Lessons are built from reusable **components**, stored in `./assets/`: stylesheets, quiz widgets, simulators, diagram helpers, and anything else a second lesson could reuse.
+Lessons are built from reusable **components** shared by every subject, stored once in the repo's root `common/`: the stylesheet (`course.css`), the quiz widgets (`quiz.js`), the question-bank engine (`bank.js`), and the page plumbing for the shared quiz pages. A subject's own `./assets/` holds only its content: question banks and images. See `docs/adr/0001-shared-engine-in-common.md` for why.
 
-Reuse is the default, not the exception. Before authoring a lesson, read `./assets/` and build from the components already there. When a lesson needs something new and reusable, write it as a component in `./assets/` and link to it; never inline code a future lesson would duplicate.
+Reuse is the default, not the exception. Before authoring a lesson, read `common/` and build from the components already there. When a lesson needs something new and reusable, write it as a component in `common/`, where every subject gets it; a component that lives in one subject is a copy the others will miss.
 
-A shared stylesheet is the first component every workspace earns: every lesson links it, so the lessons look like one consistent course rather than a pile of one-offs. As the workspace grows, so should the component library.
+Every lesson is `<subject>/lessons/NNNN-slug.html` with `<html lang="…" data-subject="<subject>">` (it keys the stored scores), and links `../../common/course.css`, `../../common/quiz.js`, `../../common/bank.js`, then its chapter banks from `../assets/bank/`, and `../../common/nav.js` (the subject menu bar). Cheat sheets in `reference/` carry the same `data-subject` and link `../../common/course.css` and `../../common/nav.js`. List every new lesson and cheat sheet in `subject.json` (`lessons`, `reference`): the menu bar and subject home are built from it. Link to the shared quizzes as `../../quiz/<kind>.html?subject=<subject>&chapter=<id>`. Take an existing lesson in any subject as the template, so every subject looks the same.
 
 ## The Mission
 
@@ -92,7 +104,7 @@ The user may specify an exact thing they want to learn. If they don't, figure ou
 
 Lessons should be designed around a skill the user is going to learn. The knowledge in the lesson should be only what's required to acquire that skill. You teach the knowledge first, then get the user to practice the skills via an interactive feedback loop.
 
-Knowledge should first be gathered from trusted resources. Use `RESOURCES.md` to keep track of them. Lessons should be littered with citations - links to external resources to back up any claim made. This increases the trustworthiness of the lesson.
+Knowledge comes from the resources in `RESOURCES.md`. Lessons should be littered with citations to them (resource · chapter · section), backing every claim. This increases the trustworthiness of the lesson.
 
 For acquiring knowledge, difficulty is the enemy. It eats working memory you need for understanding.
 
@@ -107,7 +119,7 @@ For skill acquisition, difficulty is the tool. Effortful retrieval is what build
 
 Each of these should be based on a **feedback loop**, where the user receives feedback on their performance. This feedback loop should be as tight as possible, giving feedback immediately - and ideally automatically.
 
-For quizzes, each answer should be exactly the same number of words (and characters, if possible). Don't give the user any clues about the answer through formatting.
+For quizzes, each answer should be exactly the same number of words (and characters, if possible). Don't give the user any clues about the answer through formatting. Lesson quizzes follow the subject's question mix (`subject.json` → `exam.mix`); question content goes in the banks, per [BANKS.md](./BANKS.md).
 
 ## Acquiring Wisdom
 
@@ -117,7 +129,7 @@ When the user asks a question that appears to require wisdom, your default postu
 
 A community is a place (online or offline) where the user can test their skills in the real world. This might be a forum, a subreddit, a real-world class (budget permitting) or a local interest group.
 
-You should attempt to find high-reputation communities the user can join. If the user expresses a preference that they don't want to join a community, respect it.
+Suggest communities the resources or the user already name (classmates, the course's own forum). Searching for new ones needs `poglej-internet`.
 
 ## Reference Documents
 

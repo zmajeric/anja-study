@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 8 · Neurons and glia</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -75,7 +75,7 @@
 
   <h2>7. Drill — MCQ, text and pictures</h2>
   <div id="mcq"></div>
-  <p>Pictures only: <a href="../quizzes/images.html#ch6">Image quiz — Chapter 6</a>.</p>
+  <p>Pictures only: <a href="../../quiz/image.html?subject=histology&amp;chapter=ch6">Image quiz — Chapter 6</a>.</p>
 
   <h2>8. Drill — write it</h2>
   <p>All six of the script's practice questions.</p>
@@ -86,13 +86,13 @@
   <div class="box"><div class="label">Stuck?</div><p>Ask your teacher — "what's the difference between Type 1A and 1B astrocytes?", "five more questions on myelin".</p></div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/neural.html">Neurons &amp; glia cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch6">Image quiz</a></div>
+    <div>Reference sheets: <a href="../reference/neural.html">Neurons &amp; glia cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch6">Image quiz</a></div>
     <div class="nav"><a href="0007-junctions-and-basement-membrane.html">← 0007 — Junctions</a><a href="0009-muscle.html">Next: 0009 — Muscle →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch5.js"></script>
 <script src="../assets/bank/ch6.js"></script>
 <script>
@@ -104,5 +104,6 @@ Quiz.mcq('#mcq', Bank.mix(ch6.mcq, ch6.images), { key: 'L0008:mcq' });
 Quiz.recall('#recall', ch6.recall, { key: 'L0008:recall' });
 Quiz.results('#results', 'L0008');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

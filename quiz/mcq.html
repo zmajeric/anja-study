@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz</title>
+<link rel="stylesheet" href="../common/course.css">
+</head>
+<body>
+<!-- Shared quiz page: all behaviour lives in common/quizpage.js; this file only names its kind. -->
+<main>
+  <div class="kicker" id="kicker"></div>
+  <h1 id="title"></h1>
+  <p class="subtitle" id="blurb"></p>
+
+  <div class="picker-label" id="chapters-label" hidden>Chapter</div>
+  <div id="chapters"></div>
+  <div class="picker-label" id="sets-label" hidden>Question set</div>
+  <div id="sets" hidden></div>
+  <div class="picker-label" id="mine-label" hidden>Source</div>
+  <div id="mine"></div>
+
+  <div class="setup" id="setup" hidden>
+    <label>Questions <input type="number" id="n" min="1" max="200"></label>
+    <button id="new" type="button">New paper</button>
+    <span class="timer" id="timer"></span>
+    <span class="cite" id="mixline"></span>
+  </div>
+
+  <p class="empty" id="none" hidden>No questions of this kind here yet. Ask the agent: <code>/anja-teach kviz</code>.</p>
+
+  <section id="part-mcq"><h2>Answer by choice</h2><div id="mcq"></div></section>
+  <section id="part-recall"><h2>Answer in words</h2><p>Write or say your answer first, then reveal.</p><div id="recall"></div></section>
+
+  <div class="box">
+    <div class="label">Done? Send your teacher the evidence</div>
+    <p>Copies this quiz's score. Paste it into the chat.</p>
+    <div id="results"></div>
+    <p class="cite" id="breakdown"></p>
+  </div>
+
+  <footer><div id="nav"></div></footer>
+</main>
+
+<script src="../common/quiz.js"></script>
+<script src="../common/bank.js"></script>
+<script src="../common/course.js" data-home="../"></script>
+<script src="../common/quizpage.js"></script>
+<script src="../common/nav.js"></script>
+<script>QuizPage.run('mcq');</script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 3 · Vessels — the three tunics</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -109,7 +109,7 @@
   <h2>9. Drill — MCQ, text and pictures mixed</h2>
   <p>The picture items are the exam's "identify the vessel shown" format. Look before you read the options.</p>
   <div id="mcq"></div>
-  <p>Want only the pictures? <a href="../quizzes/images.html#ch2">Image quiz — Chapter 2</a>.</p>
+  <p>Want only the pictures? <a href="../../quiz/image.html?subject=histology&amp;chapter=ch2">Image quiz — Chapter 2</a>.</p>
 
   <h2>10. Drill — write it</h2>
   <p>Five of the script's own practice questions plus one comparison. Answer first, then reveal.</p>
@@ -129,13 +129,13 @@
   </div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/vessels.html">Vessels cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch2">Image quiz</a></div>
+    <div>Reference sheets: <a href="../reference/vessels.html">Vessels cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch2">Image quiz</a></div>
     <div class="nav"><a href="0002-hematopoiesis-growth-factors-epo.html">← 0002 — Hematopoiesis</a><a href="0004-the-cell.html">Next: 0004 — The cell →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch1.js"></script>
 <script src="../assets/bank/ch2.js"></script>
 <script>
@@ -147,5 +147,6 @@ Quiz.mcq('#mcq', Bank.mix(ch2.mcq, ch2.images, 5), { key: 'L0003:mcq' });
 Quiz.recall('#recall', ch2.recall, { key: 'L0003:recall' });
 Quiz.results('#results', 'L0003');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

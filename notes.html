@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My notes</title>
+<link rel="stylesheet" href="common/course.css">
+</head>
+<body>
+<!-- Shared "My notes" page: the learner's iPad notes from <subject>/notes/notes.json, grouped by chapter.
+     Filters live in the address: ?subject=&kind=HIGHLIGHT|INK&colour=BLUE&chapter=ch3&resource=…&q=…
+     or ?tag=ipad-note:INK-BLUE (the same syntax as in chat). -->
+<main>
+  <div class="kicker" id="kicker">My notes</div>
+  <h1>My notes</h1>
+  <p class="subtitle" id="summary"></p>
+
+  <div class="notes-filters">
+    <div class="picker-label">Kind</div><div id="f-kind"></div>
+    <div class="picker-label">Colour</div><div id="f-colour"></div>
+    <div class="picker-label">Chapter</div><div id="f-chapter"></div>
+    <div class="setup">
+      <label>Resource <select id="f-resource"></select></label>
+      <label>Search <input type="search" id="f-q" style="width:12rem"></label>
+      <span class="cite" id="f-tag"></span>
+    </div>
+  </div>
+
+  <p class="empty" id="none" hidden></p>
+  <div id="groups"></div>
+</main>
+<script src="common/course.js" data-home=""></script>
+<script src="common/notes.js"></script>
+<script src="common/nav.js"></script>
+<script>
+Course.loadSubject().then(function (s) {
+  var ROOT = new URL('.', location.href);
+  document.title = 'My notes · ' + s.title;
+  document.getElementById('kicker').textContent = s.title + ' · My notes';
+  var lessons = {}; s.lessons.forEach(function (l) { lessons[l.file] = l.title; });
+  var chapterName = {}; s.chapters.forEach(function (c) { chapterName[c.id] = 'Ch. ' + c.n + ' — ' + c.title; });
+
+  IpadNotes.load(ROOT, s.id).then(function (notes) {
+    var tag = IpadNotes.parseTag(Course.param('tag'));
+    var f = {
+      kind: Course.param('kind') || tag.kind || '',
+      colour: Course.param('colour') || tag.colour || '',
+      chapter: Course.param('chapter') || '',
+      resource: Course.param('resource') || '',
+      q: Course.param('q') || ''
+    };
+    if (!notes.length) {
+      var none = document.getElementById('none'); none.hidden = false;
+      none.textContent = 'No iPad notes yet. Put your GoodNotes export next to the original in source/ as "<name>_edited.pdf" and run /anja-teach opombe.';
+      document.querySelector('.notes-filters').hidden = true;
+      return;
+    }
+    function present(key) { var v = []; notes.forEach(function (n) { if (n[key] && v.indexOf(n[key]) < 0) v.push(n[key]); }); return v; }
+
+    function chips() {
+      Course.chips('#f-kind', [{ id: '', label: 'All' }, { id: 'HIGHLIGHT', label: 'Highlights' }, { id: 'INK', label: 'Ink' }], f.kind, function (v) { f.kind = v; render(); });
+      Course.chips('#f-colour', [{ id: '', label: 'All' }].concat(IpadNotes.COLOURS.filter(function (c) { return present('colour').indexOf(c) >= 0; })
+        .map(function (c) { return { id: c, label: c.toLowerCase() }; })), f.colour, function (v) { f.colour = v; render(); });
+      var chs = s.chapters.map(function (c) { return c.id; }).filter(function (id) { return present('chapter').indexOf(id) >= 0; });
+      Course.chips('#f-chapter', [{ id: '', label: 'All' }].concat(chs.map(function (id) { return { id: id, label: chapterName[id] || id }; })),
+        f.chapter, function (v) { f.chapter = v; render(); });
+    }
+    var sel = document.getElementById('f-resource');
+    [''].concat(present('resource')).forEach(function (r) { var o = document.createElement('option'); o.value = r; o.textContent = r || 'All'; sel.appendChild(o); });
+    sel.value = f.resource; sel.onchange = function () { f.resource = sel.value; render(); };
+    var q = document.getElementById('f-q'); q.value = f.q; q.oninput = function () { f.q = q.value; render(); };
+
+    function render() {
+      chips();
+      var tagText = f.kind || f.colour ? 'ipad-note:' + [f.kind, f.colour].filter(Boolean).join('-') : '';
+      document.getElementById('f-tag').textContent = tagText;
+      Course.setParams({ kind: f.kind, colour: f.colour, chapter: f.chapter, resource: f.resource, q: f.q, tag: null });
+      var needle = f.q.trim().toLowerCase();
+      var shown = notes.filter(function (n) {
+        return IpadNotes.matches(n, f) && (!f.chapter || n.chapter === f.chapter) && (!f.resource || n.resource === f.resource) &&
+          (!needle || (n.text || '').toLowerCase().indexOf(needle) >= 0);
+      });
+      document.getElementById('summary').textContent = shown.length + ' of ' + notes.length + ' notes' + (tagText ? ' · ' + tagText : '');
+      var groups = document.getElementById('groups'); groups.innerHTML = '';
+      var order = s.chapters.map(function (c) { return c.id; }).concat(['']);
+      order.forEach(function (ch) {
+        var inCh = shown.filter(function (n) { return (n.chapter || '') === ch; });
+        if (!inCh.length) return;
+        var sec = document.createElement('section'); sec.className = 'notes-group';
+        var h = document.createElement('h2'); h.textContent = ch ? chapterName[ch] || ch : 'Not yet placed in a chapter';
+        sec.appendChild(h);
+        inCh.forEach(function (n) { sec.appendChild(IpadNotes.card(n, ROOT, s.id, { lessonLink: true, lessons: lessons })); });
+        groups.appendChild(sec);
+      });
+      var none = document.getElementById('none');
+      none.hidden = !!shown.length; none.textContent = 'No notes match these filters.';
+    }
+    render();
+  });
+});
+</script>
+</body>
+</html>

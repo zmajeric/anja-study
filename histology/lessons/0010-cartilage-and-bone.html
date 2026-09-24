@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 10 · Cartilage and bone</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -76,7 +76,7 @@
 
   <h2>6. Drill — MCQ, text and pictures</h2>
   <div id="mcq"></div>
-  <p>Pictures only: <a href="../quizzes/images.html#ch8">Image quiz — Chapter 8</a>.</p>
+  <p>Pictures only: <a href="../../quiz/image.html?subject=histology&amp;chapter=ch8">Image quiz — Chapter 8</a>.</p>
 
   <h2>7. Drill — write it</h2>
   <div id="recall"></div>
@@ -86,13 +86,13 @@
   <div class="box"><div class="label">Stuck?</div><p>Ask your teacher — "hyaline vs fibrocartilage pictures side by side", "why is the osteoclast the odd one out?"</p></div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/cartilage-bone.html">Cartilage &amp; bone cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch8">Image quiz</a></div>
+    <div>Reference sheets: <a href="../reference/cartilage-bone.html">Cartilage &amp; bone cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch8">Image quiz</a></div>
     <div class="nav"><a href="0009-muscle.html">← 0009 — Muscle</a><a href="0011-soft-connective-tissue.html">Next: 0011 — Soft connective tissue →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch7.js"></script>
 <script src="../assets/bank/ch8.js"></script>
 <script>
@@ -103,5 +103,6 @@ Quiz.mcq('#mcq', Bank.mix(ch8.mcq, ch8.images), { key: 'L0010:mcq' });
 Quiz.recall('#recall', ch8.recall, { key: 'L0010:recall' });
 Quiz.results('#results', 'L0010');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

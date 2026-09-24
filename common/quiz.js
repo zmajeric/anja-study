@@ -1,4 +1,4 @@
-/* Histology course — quiz components.
+/* Shared quiz components (every subject).
  *
  *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite, img}]
  *   Quiz.recall(el, items, {key})  items: [{q, a, img}]
@@ -10,7 +10,8 @@
  * `img` is optional: {src, alt, caption} — a micrograph shown above the question stem,
  * for "identify what is shown" items like the ones on the real exam.
  * Options are shuffled on every render so position can't be memorised.
- * Feedback is immediate. Scores persist in localStorage under "histology:<key>".
+ * Feedback is immediate. Scores persist in localStorage under "<subject>:<key>", where the subject is
+ * <html data-subject="…"> on a lesson, or the one the shared quiz pages loaded (Course.load).
  *
  * Stored shapes — both record the number of items the attempt was made against, so a
  * half-finished attempt still counts and an attempt made before a question was added
@@ -20,9 +21,11 @@
  *   sort    {correct, total, answered, missed: [label...], at, stale?}   (same shape as mcq, labels not numbers)
  */
 (function () {
+  /* Read on every call: the shared quiz pages learn their subject only after the page has loaded. */
+  function prefix() { return (window.SUBJECT || document.documentElement.getAttribute('data-subject') || 'course') + ':'; }
   var store = {
-    get: function (k) { try { return JSON.parse(localStorage.getItem('histology:' + k)) || null; } catch (e) { return null; } },
-    set: function (k, v) { try { localStorage.setItem('histology:' + k, JSON.stringify(v)); } catch (e) {} }
+    get: function (k) { try { return JSON.parse(localStorage.getItem(prefix() + k)) || null; } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(prefix() + k, JSON.stringify(v)); } catch (e) {} }
   };
   function shuffle(arr) {
     var a = arr.slice();
@@ -211,7 +214,7 @@
   }
 
   /* Quiz.results(el, lessonId): a "Copy my results" button that gathers every stored
-   * score whose key starts with "histology:<lessonId>" and puts a one-line summary on the
+   * score whose key starts with "<subject>:<lessonId>" and puts a one-line summary on the
    * clipboard (and on screen, in case the clipboard is blocked) — paste it to the teacher. */
   function results(root, lessonId) {
     root = typeof root === 'string' ? document.querySelector(root) : root;

@@ -1,0 +1,58 @@
+{
+  "id": "histology",
+  "title": "Histology",
+  "status": "archived",
+  "language": "en",
+  "exam": {
+    "date": "2026-09-20",
+    "mix": { "mcq": 70, "written": 10, "image": 20 },
+    "imageForms": { "mcq": 100, "written": 0 },
+    "options": { "mcq": 4, "image": 4 },
+    "mockLength": 40
+  },
+  "chapters": [
+    { "id": "ch1", "n": 1, "title": "Blood cells & hematopoiesis", "bank": "assets/bank/ch1.js" },
+    { "id": "ch2", "n": 2, "title": "Blood & lymphatic vessels", "bank": "assets/bank/ch2.js" },
+    { "id": "ch3", "n": 3, "title": "The cell", "bank": "assets/bank/ch3.js" },
+    { "id": "ch4", "n": 4, "title": "Embryonic tissues", "bank": "assets/bank/ch4.js" },
+    { "id": "ch5", "n": 5, "title": "Epithelia", "bank": "assets/bank/ch5.js" },
+    { "id": "ch6", "n": 6, "title": "Neurons & glia", "bank": "assets/bank/ch6.js" },
+    { "id": "ch7", "n": 7, "title": "Muscle", "bank": "assets/bank/ch7.js" },
+    { "id": "ch8", "n": 8, "title": "Cartilage & bone", "bank": "assets/bank/ch8.js" },
+    { "id": "ch9", "n": 9, "title": "Soft connective tissue", "bank": "assets/bank/ch9.js" }
+  ],
+  "extraBanks": ["assets/bank/round2.js", "assets/bank/round3.js"],
+  "sets": {
+    "core": "Core",
+    "round1": "Round 1 · Identify",
+    "round2": "Round 2 · Facts about the picture",
+    "round3": "Round 3 · Look-alikes & hard set",
+    "sample": "Exam sample"
+  },
+  "lessons": [
+    { "file": "lessons/0001-reading-a-blood-smear.html", "title": "Reading a blood smear", "chapter": "ch1" },
+    { "file": "lessons/0002-hematopoiesis-growth-factors-epo.html", "title": "Hematopoiesis, growth factors, EPO", "chapter": "ch1" },
+    { "file": "lessons/0003-vessels-the-three-tunics.html", "title": "Vessels — the three tunics", "chapter": "ch2" },
+    { "file": "lessons/0004-the-cell.html", "title": "The cell", "chapter": "ch3" },
+    { "file": "lessons/0005-embryonic-tissues.html", "title": "Embryonic tissues", "chapter": "ch4" },
+    { "file": "lessons/0006-epithelium-classification.html", "title": "Classifying epithelia", "chapter": "ch5" },
+    { "file": "lessons/0007-junctions-and-basement-membrane.html", "title": "Junctions and the basement membrane", "chapter": "ch5" },
+    { "file": "lessons/0008-neurons-and-glia.html", "title": "Neurons and glia", "chapter": "ch6" },
+    { "file": "lessons/0009-muscle.html", "title": "Muscle", "chapter": "ch7" },
+    { "file": "lessons/0010-cartilage-and-bone.html", "title": "Cartilage and bone", "chapter": "ch8" },
+    { "file": "lessons/0011-soft-connective-tissue.html", "title": "Soft connective tissue", "chapter": "ch9" },
+    { "file": "lessons/0012-the-eye-across-all-chapters.html", "title": "The eye, across all chapters", "chapter": "all" }
+  ],
+  "reference": [
+    { "file": "reference/glossary.html", "title": "Glossary" },
+    { "file": "reference/blood-cells.html", "title": "Blood cells & hematopoiesis" },
+    { "file": "reference/vessels.html", "title": "Blood & lymphatic vessels" },
+    { "file": "reference/cell.html", "title": "The cell" },
+    { "file": "reference/embryology.html", "title": "Embryonic tissues" },
+    { "file": "reference/epithelia.html", "title": "Epithelia" },
+    { "file": "reference/neural.html", "title": "Neurons & glia" },
+    { "file": "reference/muscle.html", "title": "Muscle" },
+    { "file": "reference/cartilage-bone.html", "title": "Cartilage & bone" },
+    { "file": "reference/soft-connective-tissue.html", "title": "Soft connective tissue" }
+  ]
+}

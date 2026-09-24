@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 7 · Junctions and the basement membrane</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -73,7 +73,7 @@
 
   <h2>5. Drill — MCQ, text and electron micrographs</h2>
   <div id="mcq"></div>
-  <p>Pictures only: <a href="../quizzes/images.html#ch5">Image quiz — Chapter 5</a>.</p>
+  <p>Pictures only: <a href="../../quiz/image.html?subject=histology&amp;chapter=ch5">Image quiz — Chapter 5</a>.</p>
 
   <h2>6. Drill — write it</h2>
   <div id="recall"></div>
@@ -88,8 +88,8 @@
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch4.js"></script>
 <script src="../assets/bank/ch5.js"></script>
 <script>
@@ -102,5 +102,6 @@ Quiz.mcq('#mcq', Bank.mix(ch5.mcq.slice(23), picsB), { key: 'L0007:mcq' });
 Quiz.recall('#recall', ch5.recallB, { key: 'L0007:recall' });
 Quiz.results('#results', 'L0007');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>

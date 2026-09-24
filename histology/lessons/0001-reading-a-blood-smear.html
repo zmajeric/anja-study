@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-subject="histology">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson 1 · Reading a blood smear</title>
-<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../../common/course.css">
 </head>
 <body>
 <main>
@@ -126,7 +126,7 @@
   </ul>
 
   <h2>6. Drill — MCQ</h2>
-  <p>Immediate feedback; options reshuffle on retry. Aim for 13/13 before moving on. Then the <a href="../quizzes/images.html#ch1">image quiz for Chapter 1</a> — twelve micrographs, "identify the cell shown", the sample exam's format.</p>
+  <p>Immediate feedback; options reshuffle on retry. Aim for 13/13 before moving on. Then the <a href="../../quiz/image.html?subject=histology&amp;chapter=ch1">image quiz for Chapter 1</a> — twelve micrographs, "identify the cell shown", the sample exam's format.</p>
   <div id="mcq"></div>
 
   <h2>7. Drill — write it (the 10% written part)</h2>
@@ -149,13 +149,13 @@
   </div>
 
   <footer>
-    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../quizzes/images.html#ch1">Image quiz — Chapter 1</a></div>
+    <div>Reference sheets: <a href="../reference/blood-cells.html">Blood cells cheat sheet</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../../quiz/image.html?subject=histology&amp;chapter=ch1">Image quiz — Chapter 1</a></div>
     <div class="nav"><span>← (first lesson)</span><a href="0002-hematopoiesis-growth-factors-epo.html">Next: 0002 — Hematopoiesis, growth factors, EPO →</a></div>
   </footer>
 </main>
 
-<script src="../assets/quiz.js"></script>
-<script src="../assets/bank.js"></script>
+<script src="../../common/quiz.js"></script>
+<script src="../../common/bank.js"></script>
 <script src="../assets/bank/ch1.js"></script>
 <script>
 Quiz.mcq('#mcq', Bank.get('ch1').mcq.slice(0, 13), { key: 'L0001:mcq' });
@@ -164,5 +164,6 @@ Quiz.recall('#recall', Bank.get('ch1').recall1, { key: 'L0001:recall' });
 
 Quiz.results('#results', 'L0001');
 </script>
+<script src="../../common/nav.js"></script>
 </body>
 </html>
