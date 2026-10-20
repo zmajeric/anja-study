@@ -43,7 +43,9 @@ explicit confirmation for that change, and tell the user whenever a subject's ch
 
 ```
 common/            the shared engine: course.css, quiz.js, bank.js, course.js, quizpage.js, customquiz.js, nav.js, notes.js
-common/tools/      extract-images.py (resources → assets/img/source/), extract-notes.py (iPad notes)
+common/tools/      extract-text.py (PDF resources → source/<name>.md), extract-images.py (resources →
+                   assets/img/source/), extract-notes.py (iPad notes; flattened.py reads GoodNotes exports);
+                   they need PyMuPDF (pip install pymupdf)
 quiz/              the shared quiz pages: mcq, write, image, mixed, mock  (?subject=&chapter=&set=&mine=),
                    custom  (?subject=&quiz=; papers saved in the browser)
 index.html         subject list (from subjects.json) · subject.html: one subject's home (from subject.json)

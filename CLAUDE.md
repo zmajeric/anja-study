@@ -5,7 +5,8 @@
 - `.claude/settings.json` wires `.claude/hooks/subject-guard.js` (SessionStart, UserPromptSubmit,
   PreToolUse, PostToolUse, Stop) and makes web tools ask. In a development session the hook asks
   before a change to `source/` or `RESOURCES.md` and reports every such change and every cheat-sheet
-  change. Claude Code reads settings only from the directory a session
+  change. The user can stop the asking for one session by typing `varovalo-izklop` on a line of its
+  own (`varovalo-vklop` turns it back on); the changes are still reported. Claude Code reads settings only from the directory a session
   starts in, so each subject carries an identical copy at `<subject>/.claude/settings.json`; change
   both together. Per-session state goes to `.claude/state/` (git-ignored).
 - The skill is `/anja-teach`, stored in the repo so every checkout behaves the same. It has its own

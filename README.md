@@ -188,7 +188,7 @@ Poglavje in niz vprašanj izbereš na strani; naslov si zapomni izbiro, npr.
 | Izgled vseh strani | `common/course.css` | Ena datoteka za vse predmete. |
 | Obnašanje kvizov | `common/quiz.js`, `common/bank.js`, `common/quizpage.js`, `common/customquiz.js` | Ena kopija za vse predmete. |
 | Varovalo "en predmet na sejo" in spletni dostop | `.claude/hooks/subject-guard.js`, `.claude/settings.json` | Vsak predmet ima enako kopijo `settings.json` v `<predmet>/.claude/`; spremeni vse skupaj. |
-| Branje slik in opomb iz virov | `common/tools/extract-images.py`, `common/tools/extract-notes.py` | Npr. najmanjša velikost slike (`MIN_SIDE`) ali barvna paleta opomb (`PALETTE`). |
+| Branje besedila, slik in opomb iz virov | `common/tools/extract-text.py`, `common/tools/extract-images.py`, `common/tools/extract-notes.py` (+ `flattened.py` za izvoze iz GoodNotes) | Npr. najmanjša velikost slike (`MIN_SIDE`), barvna paleta opomb (`PALETTE`) ali razdalja, do katere se potezi združijo v eno opombo (`GAP` v `flattened.py`). |
 | Postopek za opombe | `.claude/skills/anja-teach/OPOMBE.md` | Uredi besedilo; velja za vse predmete. |
 | Besednjak | `CONTEXT.md` (delovni prostor), `<predmet>/GLOSSARY.md` (vsebina predmeta) | |
 
@@ -199,7 +199,7 @@ Vse nastavitve so v repozitoriju: ko ga potegneš na drug računalnik, deluje en
 ```
 AGENTS.md  CLAUDE.md  CONTEXT.md  README.md
 index.html  subject.html  notes.html  subjects.json
-common/            skupni izgled, logika kvizov in opomb; tools/ = skripti za slike in opombe
+common/            skupni izgled, logika kvizov in opomb; tools/ = skripti za besedilo, slike in opombe
 quiz/              šest skupnih strani s kvizi
 docs/adr/          zakaj je nekaj narejeno tako
 .claude/           varovalo, skill /anja-teach, lokalni strežnik

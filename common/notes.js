@@ -64,6 +64,7 @@
     }
     if (n.text) a.appendChild(el('p', n.kind === 'INK' ? 'ipad-note-text ink' : 'ipad-note-text', n.kind === 'HIGHLIGHT' ? '“' + n.text + '”' : n.text));
     else if (n.kind === 'INK') a.appendChild(el('p', 'ipad-note-text empty', 'not transcribed yet'));
+    if (n.textBy === 'ocr') a.appendChild(el('p', 'ipad-note-text empty', 'handwriting recognition, not checked yet'));
     if (opts.lessonLink && n.lesson) {
       var link = el('a', 'ipad-note-lesson', '→ ' + ((opts.lessons || {})[n.lesson] || n.lesson));
       link.href = new URL(subject + '/' + n.lesson + (n.anchor ? '#' + n.anchor : ''), root).href;

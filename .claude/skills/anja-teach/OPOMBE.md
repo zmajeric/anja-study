@@ -13,17 +13,26 @@ python common/tools/extract-notes.py <subject>
 ```
 
 It writes `notes/notes.json` and `notes/img/`, keeping the chapter, lesson, anchor and
-transcriptions of notes it has seen before (its header documents the record). Read its summary:
+transcriptions of notes it has seen before (its header documents the record). It reads both real
+PDF annotations and **flattened marks**, the strokes GoodNotes burns into an exported page: it
+compares each page with the clean original, so the original must stay beside the export. Strokes
+of one colour lying close together become one note (a written line or paragraph, a drawing, a
+multi-line highlight); a drawing in several colours is one note per colour. A pen underline or
+circle round printed words counts as a highlight of those words. Ink comes with GoodNotes' own
+handwriting recognition as a draft (`textBy: "ocr"`), often wrong.
 
-- **flattened marks**: pages whose marks GoodNotes burned into the page. They are not extracted
-  yet. Tell the user which pages, and that this needs the comparison step tuned on a real GoodNotes
-  sample; it is the next thing to build once one exists.
+Read its summary. **Marks not read** are pages that differ from the original in a way the tool does
+not read (no annotations, no vector strokes, e.g. pasted images): tell the user which pages.
 
 ## 2. Transcribe ink
 
-For every INK note with empty `text`, look at `notes/<image>` and write what it says into `text`,
-with `textBy: "agent"`. Mark each word you cannot read as `[?]`; never guess a word to make a
-sentence read well. When the user corrects a transcription, write their version with
+For every INK note whose `textBy` is not `agent` or `user` (empty, or an `ocr` draft), look at
+`notes/<image>` and write what it says into `text`, with `textBy: "agent"`. The crop may show
+printed text and other notes: transcribe only the handwriting in the note's colour. Mark each word
+you cannot read as `[?]`; never guess a word to make a sentence read well, and use the draft only as
+a hint. A note with no words (a drawing, arrow, bracket, dot) gets `[drawing]`; a drawing with
+labels gets its labels. Many notes: split them into batches for parallel subagents, each returning
+`{id: text}`, and merge. When the user corrects a transcription, write their version with
 `textBy: "user"`; re-extraction keeps both.
 
 ## 3. Place each note
@@ -41,8 +50,8 @@ groups by chapter. Done when every note has a chapter.
 
 ## 4. Report
 
-Counts by kind and colour, new and removed notes, ink you could not fully read, flattened pages,
-and the link `notes.html?subject=<id>`.
+Counts by kind and colour, new and removed notes, ink you could not fully read, pages with marks not
+read, and the link `notes.html?subject=<id>`.
 
 ## Questions about notes
 

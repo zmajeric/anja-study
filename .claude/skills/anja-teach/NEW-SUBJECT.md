@@ -9,12 +9,16 @@ every file named below.
 Move every resource file into `<subject>/source/` (keep names). A `*_edited.pdf` is the learner's
 annotated copy of the file with the same name without `_edited`: keep both, and handle the notes
 in step 4 per [OPOMBE.md](./OPOMBE.md). Extract each one's text to
-`source/<same name>.md` so later sessions read text, not binaries (use the `pdf` / `docx` skills).
-Then pull every image out of them:
+`source/<same name>.md` so later sessions read text, not binaries, and pull every image out of them:
 
 ```
+python common/tools/extract-text.py <subject>
 python common/tools/extract-images.py <subject>
 ```
+
+`extract-text.py` handles PDFs (DOCX: the `docx` skill). It keeps GoodNotes handwriting OCR apart from
+the printed text and repairs broken ligatures; add `--notes-beside-slides` for a slide handout the
+learner typed notes beside (its header explains both).
 
 It fills `assets/img/source/<resource>/` and `assets/img/source/index.json` (resource, page, nearby
 text for each image). These are raw; named, cropped copies for image questions come later, per
@@ -51,7 +55,8 @@ Done when every item has an answer from the user.
 | `NOTES.md` | the user's teaching preferences from the interview |
 | `GLOSSARY.md` | created with the first term that needs a ruling |
 | `.claude/settings.json` | a byte-for-byte copy of the root `.claude/settings.json` (it switches on the subject guard for sessions started here) |
-| `assets/bank/`, `assets/img/`, `lessons/`, `reference/`, `learning-records/` | empty directories |
+| `assets/bank/chN.js` | one per chapter, empty: `Bank.register('chN', { title, lessons: [], mcq: [], images: [], recall: [] })` (a quiz page stops when a listed bank is missing) |
+| `assets/img/`, `lessons/`, `reference/`, `learning-records/` | empty directories |
 | root `subjects.json` | append `{ "id", "title", "status": "active" }` |
 
 Done when the subject home page (`subject.html?subject=<id>`, served by `node .claude/serve.js`)

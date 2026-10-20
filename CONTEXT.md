@@ -97,11 +97,12 @@ _Avoid_: note (alone), annotation, comment
 
 **Highlight**:
 An iPad note marking existing content of the resource (text, or an area such as part of an image)
-in a colour.
+in a colour: with the highlighter, or a pen underline or circle round printed words.
 _Avoid_: marker
 
 **Ink**:
-An iPad note the learner wrote by hand, in a colour; stored as its image with a transcription.
+An iPad note the learner wrote or drew by hand, in a colour; stored as its image with a
+transcription (a drawing without words is transcribed `[drawing]`).
 _Avoid_: text note, TEXT, handwriting note
 
 **Colour**:

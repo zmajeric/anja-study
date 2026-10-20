@@ -208,3 +208,30 @@ footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule
 .notes-group .ipad-note { margin: .5rem 0; }
 .notes-filters input[type=search], .notes-filters select { font: inherit; font-size: .85rem; padding: .3rem .5rem; border: 1px solid var(--rule); border-radius: 5px; background: #fdfcf8; }
 @media print { .notes-filters, .chips, .picker-label { display: none !important; } .ipad-note { break-inside: avoid; } }
+
+/* Study script (<subject>/reference/study-script.html): source tags, pathways, label drills, self-check */
+.tag { font-family: var(--sans); font-size: .68rem; letter-spacing: .04em; padding: .05em .4em; border-radius: 3px;
+  border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; vertical-align: .1em; }
+.tag.lec { border-color: var(--accent-2); color: var(--accent-2); }
+.tag.tb { border-color: #6b6b6b; color: #444; }
+.tag.notes { border-color: #c77a1f; color: #9a5a10; background: var(--eye-bg); }
+.tag.exam { border-color: var(--accent); color: #fff; background: var(--accent); }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; font-family: var(--sans); font-size: .9rem; margin: .75rem 0 1.25rem; }
+.flow span { border: 1px solid var(--rule); background: #fff; border-radius: 5px; padding: .3rem .6rem; }
+.flow span.end { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.flow i { font-style: normal; color: var(--muted); }
+.two-up { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; align-items: start; }
+.two-up figure { margin: 0; }
+.two-up img { display: block; width: 100%; border: 1px solid var(--rule); background: #fff; }
+.two-up figcaption { font-family: var(--sans); font-size: .78rem; color: var(--muted); margin-top: .35rem; }
+details.check { border: 1px solid var(--rule); border-radius: 6px; background: #fff; padding: .6rem .9rem; margin: .5rem 0; }
+details.check summary { cursor: pointer; font-size: 1rem; }
+details.check summary::marker { color: var(--muted); }
+details.check > div { margin-top: .5rem; padding: .5rem .7rem; background: var(--note-bg); border-radius: 5px; font-size: .93rem; }
+.chapter { break-before: page; }
+.chapter:first-of-type { break-before: auto; }
+@media print {
+  details.check { break-inside: avoid; }
+  details.check > div { display: block !important; }
+  .label-drill .answer-fig { break-before: page; }
+}

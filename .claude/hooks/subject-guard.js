@@ -21,6 +21,9 @@
  *   - protected: <subject>/source/** and <subject>/RESOURCES.md. A write-type tool call on them
  *     (Write/Edit/..., or a shell command naming them with a write-type verb) asks the user first.
  *   - reported: <subject>/reference/** (the cheat sheets). Never asks; listed in the summary.
+ *   - `varovalo-izklop` on a line of its own (the user's message only) stops the asking for the rest
+ *     of this session; protected changes then count as approved but are still listed in the summary.
+ *     `varovalo-vklop` turns the asking back on.
  *   A snapshot (size + mtime per file), taken when the session became a development session, is
  *   the baseline (.claude/state/<id>.dev.json). After every tool call, a protected change the user
  *   did not approve is reported at once; at the end of every reply, a summary lists everything
@@ -144,6 +147,7 @@ function guardSources(input, tool, ti, cwd) {
   }
   if (!hit) return out({});
   d.pending[input.tool_use_id || 'unknown'] = hit;
+  if (d.askOff) { saveDev(input.session_id, d); return out({}); }   /* the user switched the asking off */
   saveDev(input.session_id, d);
   ask(hit === '*'
     ? 'Development session: this command may change protected resource files (<subject>/source/ or RESOURCES.md). Approve only if that is intended.'
@@ -159,7 +163,7 @@ function postTool(input) {
   const unconfirmed = [];
   for (const c of changes(d.last, now)) {
     if (kindOf(c.path) !== 'protected') continue;
-    if (allowed === '*' || (allowed && allowed.includes(c.path.toLowerCase()))) {
+    if (d.askOff || allowed === '*' || (allowed && allowed.includes(c.path.toLowerCase()))) {
       if (!d.approved.includes(c.path)) d.approved.push(c.path);
     } else unconfirmed.push(c);
   }
@@ -251,7 +255,17 @@ function promptSubmit(input) {
     else if (!st.active) { st.mode = 'study'; st.active = want; notice = 'Study session · ' + want; notes.push(activeText(want)); }
     else if (st.active !== want) notes.push('The user asked for subject "' + want + '" but this session is fixed to "' + st.active + '". Do not switch: tell them one subject per session, and to start a new session in ' + want + '/.');
   } else if (!st.mode) notes.push(undecidedText());
-  if (st.mode === 'development') { notice = DEV_NOTICE; notes.push(DEV_TEXT); }
+  if (st.mode === 'development') {
+    notice = DEV_NOTICE; notes.push(DEV_TEXT);
+    const off = /^\s*varovalo-izklop\s*$/im.test(prompt), on = /^\s*varovalo-vklop\s*$/im.test(prompt);
+    if (off || on) {
+      const d = loadDev(input.session_id); d.askOff = off && !on; saveDev(input.session_id, d);
+      notes.push(d.askOff
+        ? 'The user switched the source guard\'s asking off for this session (`varovalo-izklop`): changes to <subject>/source/ and RESOURCES.md no longer ask, but are still listed at the end of every reply. Still never change them without a reason the user gave.'
+        : 'The user switched the source guard\'s asking back on (`varovalo-vklop`).');
+    }
+    if (loadDev(input.session_id).askOff) notice += ' · source guard: not asking';
+  }
   if (st.web) notes.push('`poglej-internet`: web search is allowed for this message only, scoped to one chapter at most (ask which, if unclear). Record every source used in RESOURCES.md, marked "web · chapter N · ' + new Date().toISOString().slice(0, 10) + '", and label web-sourced facts as such in anything you write.');
   if (st.agent) notes.push('`poglej-agenta`: your own general knowledge may be used for this message only, scoped to one chapter at most. Label every such fact "general knowledge, not from the resources".');
   const tag = prompt.match(/ipad-note:[A-Za-z]+(?:-[A-Za-z]+)?/i);

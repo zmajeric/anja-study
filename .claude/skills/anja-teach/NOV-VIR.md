@@ -10,8 +10,8 @@ A `*_edited.pdf` is not a new resource: it is the learner's annotated copy of th
 name without `_edited`. Add its name to that resource's line in `RESOURCES.md` ("edited copy with
 iPad notes: …"), keep the original, run [OPOMBE.md](./OPOMBE.md), and stop here.
 
-Otherwise extract the text to `source/<same name>.md`, and its images with
-`python common/tools/extract-images.py <subject> "<file name>"`. Decide its kind, and ask the user
+Otherwise extract the text to `source/<same name>.md` (`python common/tools/extract-text.py <subject> "<file name>"`
+for a PDF), and its images with `python common/tools/extract-images.py <subject> "<file name>"`. Decide its kind, and ask the user
 when unsure:
 
 - **Knowledge**: teaching material (script, slides, notes, book chapter).
