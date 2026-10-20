@@ -1,3 +1,4 @@
 [
-  { "id": "histology", "title": "Histology", "status": "archived", "note": "Exam passed 20 Sept 2026 — kept as the example subject." }
+  { "id": "histology", "title": "Histology", "status": "archived", "note": "Exam passed 20 Sept 2026 — kept as the example subject." },
+  { "id": "ocular", "title": "Ocular Anatomy", "status": "active" }
 ]

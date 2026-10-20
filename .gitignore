@@ -4,3 +4,7 @@
 
 # Subject-guard hook: per-session active subject
 .claude/state/
+
+# Ocular: the textbook is copyrighted (Elsevier) and stays local, with the raw images extracted from it
+ocular/source/Clinical Anatomy and Physiology of the Visual System.Fourth Edition.*
+ocular/assets/img/source/

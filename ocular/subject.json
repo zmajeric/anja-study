@@ -1,0 +1,34 @@
+{
+  "id": "ocular",
+  "title": "Ocular Anatomy",
+  "status": "active",
+  "language": "en",
+  "exam": {
+    "date": "2026-11-13",
+    "mix": { "mcq": 70, "written": 10, "image": 20 },
+    "imageForms": { "mcq": 100, "written": 0 },
+    "options": { "mcq": 4, "image": 4 },
+    "mockLength": 40
+  },
+  "chapters": [
+    { "id": "ch1", "n": 1, "title": "Introduction: building an eye", "bank": "assets/bank/ch1.js" },
+    { "id": "ch2", "n": 2, "title": "Eyelids & lacrimal system", "bank": "assets/bank/ch2.js" },
+    { "id": "ch3", "n": 3, "title": "Cornea, conjunctiva, sclera & limbus", "bank": "assets/bank/ch3.js" },
+    { "id": "ch4", "n": 4, "title": "Crystalline lens", "bank": "assets/bank/ch4.js" },
+    { "id": "ch5", "n": 5, "title": "Uvea", "bank": "assets/bank/ch5.js" },
+    { "id": "ch6", "n": 6, "title": "IOP & aqueous chambers", "bank": "assets/bank/ch6.js" },
+    { "id": "ch7", "n": 7, "title": "Retina", "bank": "assets/bank/ch7.js" },
+    { "id": "ch8", "n": 8, "title": "Orbit", "bank": "assets/bank/ch8.js" },
+    { "id": "ch9", "n": 9, "title": "Extraocular muscles", "bank": "assets/bank/ch9.js" },
+    { "id": "ch10", "n": 10, "title": "Cranial nerve innervation", "bank": "assets/bank/ch10.js" },
+    { "id": "ch11", "n": 11, "title": "Pupillary pathway", "bank": "assets/bank/ch11.js" },
+    { "id": "ch12", "n": 12, "title": "Visual pathway", "bank": "assets/bank/ch12.js" }
+  ],
+  "sets": {
+    "core": "Core"
+  },
+  "lessons": [],
+  "reference": [
+    { "file": "reference/study-script.html", "title": "Study script" }
+  ]
+}
