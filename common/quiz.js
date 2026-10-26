@@ -1,7 +1,7 @@
 /* Shared quiz components (every subject).
  *
- *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite, img}]
- *   Quiz.recall(el, items, {key})  items: [{q, a, img}]
+ *   Quiz.mcq(el, items, {key})     items: [{q, options: [...], answer: <index>, why, cite, img, exam}]
+ *   Quiz.recall(el, items, {key})  items: [{q, a, img, exam}]
  *   Quiz.sort(el, {buckets, items}, {key})
  *                                  buckets: ['A', 'B', ...]; items: [{label, bucket: <index>, why}]
  *                                  A classification drill: every item gets one button per bucket.
@@ -9,6 +9,9 @@
  *
  * `img` is optional: {src, alt, caption} — a micrograph shown above the question stem,
  * for "identify what is shown" items like the ones on the real exam.
+ * `exam` is optional: the lecturer's own exam objective this question answers, in her words.
+ * It shows as a quiet § on the stem (the objective itself in the tooltip) and is spelled out
+ * with the explanation. It never hints at the answer, so it is safe to show before answering.
  * Options are shuffled on every render so position can't be memorised.
  * Feedback is immediate. Scores persist in localStorage under "<subject>:<key>", where the subject is
  * <html data-subject="…"> on a lesson, or the one the shared quiz pages loaded (Course.load).
@@ -56,6 +59,17 @@
 
   function byNumber(a, b) { return a - b; }
 
+  /* The quiet marker for a question that answers one of the lecturer's exam objectives. */
+  function goalMark(it) {
+    if (!it.exam) return null;
+    return h('span', { class: 'goal', title: 'Exam guidelines: ' + it.exam }, '§');
+  }
+  function goalNote(it) {
+    if (!it.exam) return null;
+    return h('span', { class: 'cite goal-note' }, 'Exam guidelines · ' + it.exam);
+  }
+  function addIf(parent, el) { if (el) parent.appendChild(el); }
+
   /* How a stored attempt reads back, once the quiz itself may have changed under it. */
   function prevLine(p) {
     if (p.stale) return 'Last attempt (' + p.correct + '/' + p.total + ') was taken before this quiz grew — take it again for a score you can send.';
@@ -83,7 +97,9 @@
       var optsEl = h('div', { class: 'opts' });
       var item = h('div', { class: 'item' });
       var fig = figure(it.img); if (fig) item.appendChild(fig);
-      item.appendChild(h('div', { class: 'stem' }, h('span', { class: 'n' }, String(i + 1)), it.q));
+      var stem = h('div', { class: 'stem' }, h('span', { class: 'n' }, String(i + 1)), it.q);
+      addIf(stem, goalMark(it));
+      item.appendChild(stem);
       item.appendChild(optsEl); item.appendChild(why);
       var order = shuffle(it.options.map(function (_, idx) { return idx; }));
       var buttons = order.map(function (idx) {
@@ -99,6 +115,7 @@
         });
         why.appendChild(document.createTextNode((ok ? 'Correct. ' : 'Not quite. ') + (it.why || '')));
         if (it.cite) why.appendChild(h('span', { class: 'cite' }, it.cite));
+        addIf(why, goalNote(it));
         why.classList.add('show');
         answered++; if (ok) correct++; else missed.push(i + 1);
         save();
@@ -152,8 +169,11 @@
         results[i + 1] = ok; save();
       }
       var fig = figure(it.img); if (fig) card.appendChild(fig);
-      card.appendChild(h('div', { class: 'prompt' }, it.q));
+      var prompt = h('div', { class: 'prompt' }, it.q);
+      addIf(prompt, goalMark(it));
+      card.appendChild(prompt);
       card.appendChild(h('p', { class: 'cite' }, 'Say or write your answer first. Then reveal.'));
+      addIf(ans, goalNote(it));
       card.appendChild(ans);
       card.appendChild(h('div', { class: 'controls' }, reveal, got, miss));
       root.appendChild(card);

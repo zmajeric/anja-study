@@ -94,6 +94,13 @@ mark { background: #fff3a8; padding: 0 .15em; }
 .quiz .why { margin-top: .75rem; padding: .6rem .8rem; background: var(--note-bg); border-radius: 5px; font-size: .92rem; display: none; }
 .quiz .why.show { display: block; }
 .quiz .why .cite { display: block; margin-top: .3rem; }
+/* A question that answers one of the lecturer's exam objectives: a quiet § on the stem,
+ * the objective itself in its tooltip and spelled out with the explanation. */
+.goal { font-family: var(--sans); font-size: .7rem; color: var(--muted); margin-left: .35rem;
+        vertical-align: super; cursor: help; opacity: .65; }
+.goal:hover { opacity: 1; color: var(--accent-2); }
+.goal-note { display: block; margin-top: .3rem; font-style: italic; }
+.recall .answer .goal-note { margin-top: .5rem; }
 .quiz .score { margin-top: 1rem; padding: .8rem 1rem; border-radius: 6px; background: var(--note-bg); font-weight: 600; display: none; }
 .quiz .score.show { display: block; }
 .quiz .score button { font: inherit; margin-left: .75rem; padding: .3rem .7rem; cursor: pointer; }

@@ -3,7 +3,8 @@
 ## Why
 Pass the ocular anatomy exam on **Friday 13 November 2026**: Prof. Denise Goodwin's twelve lectures
 ("Anatomy of the Visual System", Aalen 2026). The exam is in English. The numbers (question mix
-70% MCQ · 10% written · 20% image, 4 options, 40-question mock exam) live in `subject.json`.
+80% MCQ · 0% written · 20% image, 4 options, 40-question mock exam) live in `subject.json`;
+the learner dropped written questions on 23 Oct 2026.
 
 ## Success looks like
 - Meet every objective in Prof. Goodwin's exam guidelines (`source/14 Review slide handout.pdf`),

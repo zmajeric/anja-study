@@ -35,3 +35,8 @@
 - The exam guidelines have a **Circulation** topic (branches of the ophthalmic and external carotid arteries, choroidal and retinal drainage, palpebral arcades, optic nerve supply, major arterial circle of the iris). No lecture covers it; the textbook's chapter 12, Orbital Blood Supply, does. By the learner's decision it is taught only where the handouts and slides cover it (see `MISSION.md`).
 - Handout 03's "Images used" line repeats handout 02's figure list (chapter 2 figures). Its slides show the figures the lecture actually used (Figures 3.3–3.20, 4.2, 4.3).
 - The learner's handwriting in the `*_edited.pdf` copies is burned into the pages (GoodNotes export) and is not extracted yet: `common/tools/extract-notes.py` reports 136 pages with flattened marks.
+- The textbook PDF and the raw image set (`assets/img/source/`) are **not on this machine** (both are
+  git-ignored; a `find` on 21 Oct 2026 turned up neither). What survives of the textbook is its content
+  in `reference/study-script.html`, written while the file was available, and the 115 figures already
+  cropped into `assets/img/`. Enough to teach and to set image questions from those figures; a figure
+  not already cropped cannot be added until the textbook file is back in `source/`.
