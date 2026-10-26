@@ -105,6 +105,61 @@
       "file": "lessons/0001-building-an-eye.html",
       "title": "Building an eye — three coats, three spaces",
       "chapter": "ch1"
+    },
+    {
+      "file": "lessons/0002-eyelids-and-tears.html",
+      "title": "Which gland, which layer, which way out",
+      "chapter": "ch2"
+    },
+    {
+      "file": "lessons/0003-cornea-and-sclera.html",
+      "title": "Five layers, and why they stay clear",
+      "chapter": "ch3"
+    },
+    {
+      "file": "lessons/0004-crystalline-lens.html",
+      "title": "Reading a cataract off the Y sutures",
+      "chapter": "ch4"
+    },
+    {
+      "file": "lessons/0005-uvea.html",
+      "title": "Two barriers, two seals",
+      "chapter": "ch5"
+    },
+    {
+      "file": "lessons/0006-iop-and-aqueous.html",
+      "title": "Two ways out, box by box",
+      "chapter": "ch6"
+    },
+    {
+      "file": "lessons/0007-retina.html",
+      "title": "Ten layers, and how to read them on an OCT",
+      "chapter": "ch7"
+    },
+    {
+      "file": "lessons/0008-orbit.html",
+      "title": "Draw the pyramid, then fill the holes",
+      "chapter": "ch8"
+    },
+    {
+      "file": "lessons/0009-extraocular-muscles.html",
+      "title": "From a gaze position to the broken muscle",
+      "chapter": "ch9"
+    },
+    {
+      "file": "lessons/0010-cranial-nerves.html",
+      "title": "Two autonomic roads, three palsies",
+      "chapter": "ch10"
+    },
+    {
+      "file": "lessons/0011-pupillary-pathways.html",
+      "title": "Which pupil is the abnormal one?",
+      "chapter": "ch11"
+    },
+    {
+      "file": "lessons/0012-visual-pathway.html",
+      "title": "From the field back to the lesion",
+      "chapter": "ch12"
     }
   ],
   "reference": [

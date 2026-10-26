@@ -8,6 +8,15 @@
 - The learner studies in Aalen: typed notes mix English and German ("ablauf von tränendrüse bis nase").
   Teach and quiz in English.
 
+## Decisions (26 Oct 2026, later)
+- **All twelve lessons written** (`lessons/0001`–`0012`), one per chapter, each built on the
+  anja-teach pattern of lesson 1: one tightly-scoped win, the chapter's objectives quoted in a
+  "What the exam asks" box, label drills with `details.check` answers, then the chapter's own MCQ
+  and image bank through `Quiz.mcq(Bank.mix(Bank.items(ch,'mcq'), Bank.items(ch,'image')))`.
+  Lessons 2–12 have **no recall drill**: the learner dropped written questions on 23 Oct.
+  Chapters 2–12 keep their questions in the extra bank files, so each lesson loads `chN.js`
+  **and** its extra bank; the five pre-26-Oct ones carry `?v=2`, as `extraBanks` does.
+
 ## Decisions (26 Oct 2026)
 - **Full question banks for all twelve chapters**: 334 items (286 MCQ + 48 image), set `2026-10-26`
   for chapters 6–12. Every item that answers one of Prof. Goodwin's exam objectives carries
