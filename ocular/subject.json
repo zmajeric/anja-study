@@ -98,7 +98,8 @@
     "core": "Core",
     "2026-10-23-1455": "Kviz 23-10-26 14:55",
     "2026-10-23-1553": "Kviz 23-10-26 15:53",
-    "2026-10-26": "Kviz 26-10-26"
+    "2026-10-26": "Kviz 26-10-26",
+    "2026-10-26-1726": "Kviz 26-10-26 17:26"
   },
   "lessons": [
     {
@@ -180,6 +181,18 @@
     "assets/bank/ch9-2026-10-26.js",
     "assets/bank/ch10-2026-10-26.js",
     "assets/bank/ch11-2026-10-26.js",
-    "assets/bank/ch12-2026-10-26.js"
+    "assets/bank/ch12-2026-10-26.js",
+    "assets/bank/ch2-2026-10-26-1726.js",
+    "assets/bank/ch1-2026-10-26-1726.js",
+    "assets/bank/ch3-2026-10-26-1726.js",
+    "assets/bank/ch4-2026-10-26-1726.js",
+    "assets/bank/ch5-2026-10-26-1726.js",
+    "assets/bank/ch6-2026-10-26-1726.js",
+    "assets/bank/ch7-2026-10-26-1726.js",
+    "assets/bank/ch8-2026-10-26-1726.js",
+    "assets/bank/ch9-2026-10-26-1726.js",
+    "assets/bank/ch10-2026-10-26-1726.js",
+    "assets/bank/ch11-2026-10-26-1726.js",
+    "assets/bank/ch12-2026-10-26-1726.js"
   ]
 }

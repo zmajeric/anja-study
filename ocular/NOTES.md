@@ -17,6 +17,14 @@
   Chapters 2–12 keep their questions in the extra bank files, so each lesson loads `chN.js`
   **and** its extra bank; the five pre-26-Oct ones carry `?v=2`, as `extraBanks` does.
 
+## Decisions (26 Oct 2026, second round)
+- **A second question per topic, all twelve chapters**: set `2026-10-26-1726`, 240 new MCQs, 20 per
+  chapter. Same substance as the first round, asked from the other direction — from the finding back
+  to the structure, from the function back to the name, and as short clinical vignettes — so that
+  recognising the wording is not enough. Bank now 574 items, 407 tagged to an exam objective.
+- Image questions were **not** expanded: they need cropped figures, and `assets/img/` holds 111. The
+  textbook is back in `source/` (26 Oct), so `extract-images.py` can now cut more when wanted.
+
 ## Decisions (26 Oct 2026)
 - **Full question banks for all twelve chapters**: 334 items (286 MCQ + 48 image), set `2026-10-26`
   for chapters 6–12. Every item that answers one of Prof. Goodwin's exam objectives carries
