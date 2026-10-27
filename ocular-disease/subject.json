@@ -1,0 +1,123 @@
+{
+  "id": "ocular-disease",
+  "title": "Ocular Disease",
+  "status": "active",
+  "language": "en",
+  "exam": {
+    "date": "2026-11-13",
+    "mix": {
+      "mcq": 70,
+      "written": 10,
+      "image": 20
+    },
+    "imageForms": {
+      "mcq": 100,
+      "written": 0
+    },
+    "options": {
+      "mcq": 4,
+      "image": 4
+    },
+    "mockLength": 40
+  },
+  "chapters": [
+    {
+      "id": "ch1",
+      "n": 1,
+      "title": "Introduction to lid disease",
+      "bank": "assets/bank/ch1.js"
+    },
+    {
+      "id": "ch2",
+      "n": 2,
+      "title": "Blepharitis",
+      "bank": "assets/bank/ch2.js"
+    },
+    {
+      "id": "ch3",
+      "n": 3,
+      "title": "Parasitic lid disease",
+      "bank": "assets/bank/ch3.js"
+    },
+    {
+      "id": "ch4",
+      "n": 4,
+      "title": "Meibomianitis & skin",
+      "bank": "assets/bank/ch4.js"
+    },
+    {
+      "id": "ch5",
+      "n": 5,
+      "title": "Hordeolum, chalazion & cysts",
+      "bank": "assets/bank/ch5.js"
+    },
+    {
+      "id": "ch6",
+      "n": 6,
+      "title": "Preseptal & orbital cellulitis",
+      "bank": "assets/bank/ch6.js"
+    },
+    {
+      "id": "ch7",
+      "n": 7,
+      "title": "Allergic lid disease",
+      "bank": "assets/bank/ch7.js"
+    },
+    {
+      "id": "ch8",
+      "n": 8,
+      "title": "Lacrimal diseases",
+      "bank": "assets/bank/ch8.js"
+    },
+    {
+      "id": "ch9",
+      "n": 9,
+      "title": "Lid shape abnormalities",
+      "bank": "assets/bank/ch9.js"
+    },
+    {
+      "id": "ch10",
+      "n": 10,
+      "title": "Eyelid muscle abnormalities",
+      "bank": "assets/bank/ch10.js"
+    },
+    {
+      "id": "ch11",
+      "n": 11,
+      "title": "Thyroid eye disease",
+      "bank": "assets/bank/ch11.js"
+    },
+    {
+      "id": "ch12",
+      "n": 12,
+      "title": "Atypical eyelid bumps",
+      "bank": "assets/bank/ch12.js"
+    }
+  ],
+  "sets": {
+    "core": "Core",
+    "round1": "Core · pictures",
+    "variants": "Variants · same fact, asked another way"
+  },
+  "lessons": [],
+  "reference": [
+    {
+      "file": "reference/study-script.html",
+      "title": "Study script"
+    }
+  ],
+  "extraBanks": [
+    "assets/bank/ch1-variants.js",
+    "assets/bank/ch2-variants.js",
+    "assets/bank/ch3-variants.js",
+    "assets/bank/ch4-variants.js",
+    "assets/bank/ch5-variants.js",
+    "assets/bank/ch6-variants.js",
+    "assets/bank/ch7-variants.js",
+    "assets/bank/ch8-variants.js",
+    "assets/bank/ch9-variants.js",
+    "assets/bank/ch10-variants.js",
+    "assets/bank/ch11-variants.js",
+    "assets/bank/ch12-variants.js"
+  ]
+}

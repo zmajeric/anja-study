@@ -87,6 +87,8 @@ def words_under(page, annot):
 def crop(page, rect, path):
     r = pymupdf.Rect(rect) + (-6, -6, 6, 6)
     r &= page.rect
+    if r.is_empty or r.width < 1 or r.height < 1:   # a mark off the page or of no size
+        r = page.rect
     page.get_pixmap(matrix=pymupdf.Matrix(CROP_ZOOM, CROP_ZOOM), clip=r).save(path)
 
 

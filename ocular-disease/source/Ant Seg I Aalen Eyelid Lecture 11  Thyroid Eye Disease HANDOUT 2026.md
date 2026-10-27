@@ -1,0 +1,764 @@
+# Ant Seg I Aalen Eyelid Lecture 11  Thyroid Eye Disease HANDOUT 2026.pdf
+
+Text extracted from `Ant Seg I Aalen Eyelid Lecture 11  Thyroid Eye Disease HANDOUT 2026.pdf` on 2026-10-26 by `common/tools/extract-text.py`. `## Page N` is the PDF page (the numbering of `assets/img/source/index.json`).
+Ligatures (fi, fl, ff, Th …) were restored from the font glyphs; a rare word may still be wrong.
+
+## Page 1
+
+Thyroid Eye Disease 1
+
+Thyroid Eye Disease
+
+Lorne Yudcovitch, OD, MS, FAAO
+
+1
+
+Thyroid Gland
+
+•Functions: • Growth • Metabolism • Development •Conditions based on activity: • Euthyroid – subclinical dysfunction • Hypothyroid – under active • Hyperthyroid – over active
+
+2
+
+3
+
+
+## Page 2
+
+Thyroid Eye Disease 2
+
+Euthyroid
+
+•Subclinical Dysfunction •Normal T3 and T4 levels •Abnormal TSH levels • Elevated TSH fi Hypothyroid • Depressed TSH Hyperthyroid
+
+4
+
+Hypothyroid
+
+• Body lacks sufficient amounts of thyroid hormone • ~5% in US have hypothyroidism • Women >> Men by 5-7x • Up to 10% of all women
+
+Free floating
+
+TSH
+
+TSH not binding to
+
+pituitary gland
+
+Production of T3 & T4
+
+5
+
+Hypothyroid
+
+•Three major causes of hypothyroidism: 1. Inflammation • Autoimmune thyroiditis (Hashimoto’s Disease) 2. Medical treatments • Partial/total removal of thyroid • Chemical or radiation destruction 3. Medications • Lithium • Amiodarone
+
+6
+
+
+## Page 3
+
+Thyroid Eye Disease 3
+
+•Too much thyroid hormone •~1% in US have it •Most common cause: Graves' disease
+
+• T3>>T4
+
+Sai-Ching JY, Khardor R. Graves Disease. http://emedicine.medscape.com/article/120619-overview
+
+Hyperthyroid
+
+7
+
+Points of Clarification
+
+•Graves’ Disease - systemic condition •Graves’ EYE Disease - ocular condition
+
+Graves’ Eye Disease “Aka’s”
+
+Thyroid Eye Disease (TED) Graves’ Orbitopathy
+
+Thyroid Associated Orbitopathy Graves’ Ophthalmopathy
+
+Thyroid Ophthalmopathy Dysthyroid Ophthalmopathy
+
+Kanski’s Clinical Ophthalmology. 2016. Ch 3.
+
+8
+
+Graves’ Hyperthyroidism
+
+•13.9/100,000 incidence • Females >> Males (8:1) • Distribution doesn’t vary with age •Up to 50% patients may have orbitopathy • Severity varies with gender • Mild disease more likely in women • Men more likely to be severely affected •Graves’ Disease and TED run in parallel • Ocular issues can improve once thyroid is controlled
+
+1Antonelli A, et al. Best Pract Res Clin Endocrinol Metab. 2020;34(1):101387 2From Duane’ Ophthalmology – Chapter 36 – Thyroid Orbitopathy 9
+
+
+## Page 4
+
+Thyroid Eye Disease 4
+
+Thyroid Eye Disease (TED)
+
+•Multisystem autoimmune disorder •16 per 100,000 females • Usually ages 40–44 and 60–65 years •3 per 100,000 males • Usually ages 45 – 49 and 65 – 69 yrs •Severe cases occur more often in men
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy. http://emedicine.medscape.com/article/1218444-overview#showall https://webeye.ophth.uiowa.edu/eyeforum/patients/thyroid-eye-disease.htm
+
+10
+
+TED Overview
+
+•Thyroid Eye Disease w/euthyroid condition • Also known as Euthyroid orbitopathy • Pathogenesis not well understood • 5% cases • Recommend thyroid testing every 6 – 12 months
+
+• 25% develop thyroid dysfunction in 1 year • 50% develop thyroid dysfunction in 5 years
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy. http://emedicine.medscape.com/article/1218444-overview#showall; Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+11
+
+TED Overview
+
+•Risk Factors: • Smoking • THE major MODIFIABLE risk factor • 4x greater risk
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy.
+
+http://emedicine.medscape.com/article/1218444-overview#showall
+
+12
+
+
+## Page 5
+
+Thyroid Eye Disease 5
+
+TED Overview
+
+•Risk Factors: • Radioiodine • 60% of Tx for hyperthyroidism in US • Effectively ablates thyroid gland over 6-18 weeks • Somewhat controversial • Thionamide may be better option • May cause flare up of thyroid eye disease • Ethnicity • Black, Asian ancestry
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy. http://emedicine.medscape.com/article/1218444- overview#showall
+
+JAMA. 2014;311:1563-1565
+
+Walsh, JP. Radioiodine and thyroid eye disease- use with caution. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1116221/
+
+13
+
+TED Mechanism
+
+•Main autoantibody produced in TED is TSI •TSI = Thyroid Stimulating Immunoglobulin •Can be measured in blood to help monitor disease activity •Amount of TSI present correlates with TED severity
+
+https://webeye.ophth.uiowa.edu/eyeforum/patients/thyroid-eye-disease.htm
+
+*However, sometimes TED can occur without TSI formation* --think ‘euthyroid ophthalmopathy’--
+
+14
+
+Sai-Ching JY, Khardor R. Graves Disease. http://emedicine.medscape.com/article/120619-overview
+
+15
+
+
+## Page 6
+
+Thyroid Eye Disease 6
+
+TED Mechanism Overview
+
+Thyroid Stimulating Hormone Receptor (TSHR) Insulin-Like Growth Factor-1R (IGF1R)
+
+Thyroid Stimulating
+
+Immunoglobulin
+
+(TSI)
+
+Fibroblasts stimulated
+
+Inflammatory Cytokines
+
+GaG’s & Hyaluronic Acid
+
+Orbital Volume • Proptosis • Restricted EOM movement • Optic Neuropathy
+
+16
+
+Mechanism Overview
+
+•Increase in orbital volume causes eye protrusion
+
+•Proptosis •Restricted eye muscle movement •Optic neuropathy •Fibrosis  irreversible damage
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy. http://emedicine.medscape.com/article/1218444-overview#showall 17
+
+http://www.thyroid.com.au/thyroid-disorders/thyroid-eye-disease/
+
+Proptosis Mechanism
+
+18
+
+
+## Page 7
+
+Thyroid Eye Disease 7
+
+EOM Mechanism
+
+• Accumulation of GAG’s, lipid, lymphocytes, and ultimately, fibrosis • Enlarged ocular muscles and soft tissues • Pushes eye forward fi exophthalmos • Eye movements reduced • Strabismus • IMSLO Inferior, Medial, Superior, Lateral, Oblique
+
+http://www.learningradiology.com/caseofweek/caseoftheweekpix2/cow154lg.jpg Adapted from www.medweb.bham.ac.uk 19
+
+http://www.nature.com/eye/journal/v20/n10/fig_tab/6702381f6.html
+
+Optic Neuropathy Mechanism
+
+20
+
+TED Clinical Course •Active Phase • = congestive phase = inflammatory • Red, painful eyes • Tends to remit within 1-3 years • Recurrence rate ~5-10% •Stable Phase • TED less likely to recur after 18 months •~10% patients develop long-term ocular problems •Start thyroid therapy  shorter active phase Kanski’s Clinical Ophthalmology. 2016. Ch 3.
+
+21
+
+
+## Page 8
+
+Thyroid Eye Disease 8
+
+TED Clinical Course
+
+•Rundle’s Curve – describes course of TED
+
+https://webeye.ophth.uiowa.edu/eyeforum/patients/thyroid-eye-disease.htm
+
+22
+
+Thyroid Eye Disease Overview
+
+= Thyroid-Associated Orbitopathy (TAO) =Thyroid Ophthalmopathy =Graves’ Ophthalmopathy =Graves’ Orbitopathy =Dysthyroid Ophthalmopathy • Multisystem autoimmune disorder • Characterized by one or more of three clinical entities • Hyperthyroidism with thyroid hyperplasia • Infiltrative dermopathy (1-5%) • Infiltrative ophthalmopathy • Edema/lymphocytic infiltration of extraocular muscles 23
+
+TED Symptoms
+
+•Dry Eyes •Puffy Eyelids •‘Angry-looking’ eyes •Bulging eyes •Diplopia
+
+•Visual acuity loss •Visual field loss •Dyschromatopsia •Photopsia on upgaze •Ocular pressure/pain
+
+Edsel I, Roy H. Thyroid-Associated Orbitopathy. http://emedicine.medscape.com/article/1218444-overview#showall
+
+24
+
+
+## Page 9
+
+Thyroid Eye Disease 9
+
+TED Classifications
+
+•Many types of classification •All based on signs and symptoms •We will discuss five: 1. By Structure / Clinical Manifestations 2. NOSPECS (mnemonic) 3. EUGOGO 4. Clinical Activity Score (CAS) 5. VISA
+
+25
+
+Classification by Structure
+
+•Lids •Globe •Conjunctiva & Cornea •Extraocular muscles (EOMs) •Fundus •Optic nerve head (ONH)
+
+26
+
+Classification by Structure Lids
+
+• Puffy lids • Lid retraction - lid margin at/above superior limbus
+
+•Present 75% at time of diagnosis •90% patients will ultimately manifest
+
+1. Adapted from Duane’s
+
+http://edrv.endojou rnals.org/cgi/conte nt/full/24/6/802/F2
+
+27
+
+
+## Page 10
+
+Thyroid Eye Disease 10
+
+Lids
+
+•Lid lag • Von Graefe's sign: Delay of upper lid when following globe movement in down gaze • Dalrymple sign: Lid retraction in primary gaze • Kocher’s sign: Globe lagging behind upper lid on up gaze • Boston's sign: Jerky downward movement of lid • Griffith's sign: Delay of lower lid in following globe movement in up gaze
+
+Classification by Structure
+
+28
+
+Classification by Structure
+
+Lids
+
+•Other Lid signs • Rosenbach’s Sign: Tremor of closed eyelids • Stellwag’s Sign: Reduced blinking • Jellinek’s Sign: Increased pigmentation of skin of eyelids
+
+1. Adapted from Duane’s 29
+
+Classification by Structure
+
+Lids Medical Management
+
+• Lubrication • Topical alpha adrenergic blockers (relaxes muscles) • guanethidine, reserpine, thymoxamine • dapiprazole (REV-Eyes) • brimonidine 0.025% (Lumify) • Topical beta adrenergic blockers • Systemic beta adrenergic blockers (i.e. propranolol) • botulinum A toxin (Botox)
+
+30
+
+
+## Page 11
+
+Thyroid Eye Disease 11
+
+Classification by Structure
+
+Lids Surgical Management
+
+•Surgery - wait 6 months to 1 year! • Levator surgery • Muller's muscle recession
+
+31
+
+What is going on here?
+
+32
+
+Unilateral proptosis
+
+33
+
+
+## Page 12
+
+Thyroid Eye Disease 12
+
+Globe
+
+•Ocular bruit • Upon auscultation, can hear increased blood flow through collateral arterial system •Exophthalmos • 20-30% of Graves’ disease patients • 40-70% of patients with TED • Bilateral in 80-90% of cases
+
+Classification by Structure
+
+34
+
+Classification by Structure
+
+•Proptosis / Exophthalmos •Measured with exophthalmometer •2 mm or more above “normal” limit: • African Americans = 22mm • Caucasians = 20 mm • Japanese descent = 18 mm •Retropulsion useful • Limited in those with severe thyroid eye disease
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+35
+
+Globe Signs
+
+•Proptosis / Exophthalmos • Measured with exophthalmometer
+
+Exophthalmometry values in healthy Black & White Adults
+
+Race and Sex Mean Upper Limit of Normal
+
+White male 16.5 21.7
+
+White female 15.4 20.1
+
+Black male 18.5 24.7
+
+Black female 17.8 23
+
+Adapted from Migliori ME, Gladstone GJ. Determination of the normal range of exophthalmometric values for black and white adults. Am J Ophthalmol 1984: 98: 438-442 36
+
+
+## Page 13
+
+Thyroid Eye Disease 13
+
+What is the problem here?
+
+37
+
+Conjunctival chemosis
+
+38
+
+Classification by Structure
+
+•Conjunctiva and Cornea • Injected, chemotic conjunctiva • Superior limbic keratoconjunctivitis • Signs of corneal exposure and ulceration
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+39
+
+
+## Page 14
+
+Thyroid Eye Disease 14
+
+Exposure keratopathy
+
+40
+
+Classification by Structure
+
+Conjunctiva & Cornea: • Medical Management • Lubrication • Elevate head during sleep • Tinted cosmetic lenses • Steroids (systemic, topical, periocular) • Antibiotics • teprotumumab (TEPEZZA) • Sugical Management: • Orbital Decompression
+
+41
+
+http://www.neec.com/Pages/Services/Neuro-Ophthalmology/thyroid-eye-disease.php
+
+What is the problem here?
+
+42
+
+
+## Page 15
+
+Thyroid Eye Disease 15
+
+http://ekjo.org/search.php?where=aview&id=10.3341/kjo.2010.24.5.267&code=0065KJO&vmode=PUBREADER#!po=1.78571
+
+43
+
+Classification by Structure
+
+Extraocular Muscles
+
+• 60-98% pts w/Graves’ Disease • Can swell to eight times their normal size!
+
+• Restrictive extraocular myopathy in ~42% pts w/TED
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy Kanski’s Clinical Ophthalmology. 2016. Ch 3. 44
+
+Classification by Structure
+
+Extraocular Muscles
+
+• Apparent under-activity of extraocular muscles • Most common: IR fibrosis • Causes diplopia on up-gaze • 2nd most common: MR • Then SR and Levator • Finally LR • Elevated intraocular pressure on up gaze
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy 45
+
+
+## Page 16
+
+Thyroid Eye Disease 16
+
+What is the problem here?
+
+46
+
+Classification by Structure
+
+EOM’s: Plan
+
+•Medical Management • Lubrication • Eye patching or prisms • Meds • Steroids • botulinum toxin • Surgery - wait 6 months to 1 year
+
+47
+
+What is the problem here?
+
+https://www.merckmanuals.com/professional/eyedisorders/optic-nerve-disorders/papilledema 48
+
+
+## Page 17
+
+Thyroid Eye Disease 17
+
+What is the problem here?
+
+https://aapos.org/glossary/optic-nerve-atrophy
+
+49
+
+Classification by Structure
+
+Fundus
+
+• Optic neuropathy with vision loss <5% • Optic neuropathy: most common blindness cause from TED • Normally older (50-70 years old) • Later onset thyroid disease • More often have diabetes • Normally bilateral, but up to 1/3 unilateral
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+50
+
+Classification by Structure
+
+Fundus
+
+•Symptoms of Compressive Optic Neuropathy:
+
+• Blur • Vision loss • Color vision changes • Dyschromatopsia • Visual field loss • Headaches
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy 51
+
+
+## Page 18
+
+Thyroid Eye Disease 18
+
+Classification by Structure
+
+Fundus
+
+• Compression of Optic Nerve results in… • Afferent Pupillary Defect in 35% • Abnormal (Pale/Swollen) optic disc 53% • Visual Field Defects 66% • May also see: • Congested retinal veins • Chorioretinal striae
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+52
+
+Classification by Structure
+
+Optic Nerve
+
+• Optic disc edema • Painless, gradual vision loss • 70% improve without TX! • Management • Correction of thyroid imbalance • Meds • IV then oral Steroids • Cytotoxic or immunosuppressive agents • Orbital decompression • Orbital radiation
+
+53
+
+Classification- NOSPECS
+
+NOSPECS
+
+• Widely used to classify severity • Limited because: • Inability to measure progression RATE • Inability to measure treatment-induced regression
+
+Adapted from Duane’s 54
+
+
+## Page 19
+
+Thyroid Eye Disease 19
+
+Class Definition
+
+0 No physical signs or symptoms
+
+1 Only signs, no symptoms (e.g. upper eyelid retraction, stare and eyelid lag)
+
+2 Soft tissue involvement (symptoms and signs)
+
+3 Proptosis
+
+4 Extraocular muscle involvement
+
+5 Corneal involvement
+
+6 Sight loss (optic nerve involvement)
+
+Each class usually, but not necessarily, includes the involvements indicated in the preceding class
+
+55
+
+NOSPECS
+
+Class 0 – No signs or symptoms
+
+•Management: • Routine physical and eye exams
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+56
+
+NOSPECS Class 1 – Only signs/no symptoms
+
+•Non-infiltrative stage •Upper eyelid retraction (Dalrymple sign) • May resolve spontaneously •Upper lid "lag" on down gaze (von Graefe sign) •Management: • Lubricants
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+57
+
+
+## Page 20
+
+Thyroid Eye Disease 20
+
+NOSPECS
+
+Class 2 - Soft tissue involvement
+
+•First stage of infiltrative ophthalmopathy •Symptoms • Lacrimation • Photophobia • FB sensation • Retrobulbar discomfort
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+58
+
+Class 2 - Soft tissue involvement
+
+•Signs • Lid/conjunctival edema • Lid/conjunctival hyperemia • Conjunctival chemosis • Extrusion of orbital fat • Lacrimal gland swelling • Inflammation near EOM insertion •Management: • Lubricants, taping lids, oculoplastic consult
+
+NOSPECS
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+59
+
+Class 3 - Proptosis (aka “exophthalmos”)
+
+• Hyperthyroidism is most common cause of unilateral proptosis • 80% of those patients with bilateral exophthalmos will have Graves' disease • Management: • Lubricants • Consult with endocrinologist
+
+NOSPECS
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+60
+
+
+## Page 21
+
+Thyroid Eye Disease 21
+
+•Class 4 - EOM involvement • Palsy  diplopia • IR most commonly affected muscle (60-70%) followed by MR • IOP elevation in upgaze • ~20% • Secondary to tractional effect •Management: • Lubricants • Patch until thyroid condition under control
+
+NOSPECS
+
+Marcocci, C., Smith, T.J. (2016). Graves’ Ophthalmopathy. In: Vitti, P., Hegedus, L. (eds) Thyroid Diseases. Endocrinology. Springer, Cham. https://doi.org/10.1007/978-3-319-29195-6_16-1
+
+61
+
+•Class 5 - Corneal involvement •Exposure keratopathy • Can pose serious threat to vision •Management: • Lubes (ung = ointment) • Taping • Steroids topical and or oral
+
+NOSPECS
+
+62
+
+•Class 6 - Sight loss (ON involvement) •Optic disc edema • Painless, gradual loss of vision •Management: • Lubricants • IV steroids • Surgical Decompression • NOTHING??? Remember- 70% improve without Tx!
+
+NOSPECS
+
+Wang, AG. (2018). Thyroid Eye Disease with Compressive Optic Neuropathy. In: Emergency Neuro-ophthalmology . Springer, Singapore. https://doi.org/10.1007/978-981-10-7668-8_28
+
+63
+
+
+## Page 22
+
+Thyroid Eye Disease 22
+
+Classification: Clinical Activity Score (CAS)
+
+• Assess treatment of active inflammatory ophthalmopathy • Predict therapeutic outcome, and • Select patients for surgical or non-surgical treatment
+
+• High predictive outcome for: • Immunosuppressive treatment for infiltrative ophthalmopathy**
+
+64
+
+Clinical Activity Score (CAS)
+
+Proposed Classification System to Assess Disease Activity in TED • One point is given for each sign present. The sum of these points defines activity score (From Mourits et al.)
+
+• Pain • Painful, oppressive feeling on or behind the globe • Pain on attempted up, side, or down gaze • Eyelid redness • Eyelid edema • Diffuse conjunctival redness • Chemosis (conjunctiva edema) • Increase proptosis of 2 mm or more between 1 and 3 months • Impaired function • Decrease in visual acuity of 1 or more lines on Snellen chart (using pinhole) between 1 and 3 months • Decrease of eye movements in any direction equal to or more than 5 degrees between 1 and 3 months
+
+Adapted from http://www.thyroidmanager.org/Chapter12/ch01s02.html
+
+65
+
+Classification: EUGOGO
+
+European Group on Graves Orbitopathy 1. Sight-threatening due to optic neuropathy or corneal breakdown 2. Moderate-severe with one of moderate-severe soft tissue involvement, lid retraction 2mm or more, diplopia and proptosis 3mm or more 3. Mild with only minor impact on daily life
+
+Kanski’s Clinical Ophthalmology. 2016. Ch 3
+
+http://www.eugogo.eu/
+
+66
+
+
+## Page 23
+
+Thyroid Eye Disease 23
+
+EUGOGO
+
+Suggests calculating clinical activity score (CAS) to help determine threshold for use of immunosuppressives
+
+• Score of 3 or more – consider treatment
+
+EUGOGO also use NOSPECS to determine treatment plans
+
+Kanski’s Clinical Ophthalmology. 2016. Ch 3
+
+67
+
+EUGOGO CAS for EUGOGO:
+
+• Spontaneous orbital pain • Gaze evoked orbital pain • Eyelid swelling considered due to active (inflammatory phase) TED • Eyelid erythema • Conjunctival redness considered due to active (inflammatory phase) TED • Chemosis • Inflammation of caruncle or plica • Increase in proptosis of 2mm or more, • Decrease in uniocular excursion in any one direction of 8° or more, or decrease in Snellen acuity of one line
+
+Kanski’s Clinical Ophthalmology. 2016. Ch 3
+
+68
+
+Classification- VISA
+
+•Vision loss •Inflammation/congestion and activity in TED •Strabismus / motility •Appearance / exposure
+
+http://thyroideyedisease.org/clinical-features-visa-classification/
+
+69
+
+
+## Page 24
+
+Thyroid Eye Disease 24
+
+Thyroid Eye Disease
+
+Optometric work-up:
+
+• Best corrected visual acuities • Color vision • Pupils • Extraocular motilities • Lid fissure height in primary gaze • Exophthalmometry • Slit lamp • Dilated fundus exam • Imaging (photos, OCT) if needed
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+70
+
+Thyroid Eye Disease
+
+Blood Tests : •Thyroid Panel to include: • Thyroid Stimulating Hormone immunoradiometric assay (TSH-IRMA, sensitive TSH (sTSH)) • Thyroid Stimulating Immunoglobulin (TSI) • T3 and T4 •T3>>T4  Think Graves •T3 & T4 normal with abnormal TSH Euthyroid
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+71
+
+Thyroid Eye Disease
+
+Imaging •External and Fundus Photos, OCT •B-scan ultrasound •CT scan •MRI
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+72
+
+
+## Page 25
+
+Thyroid Eye Disease 25
+
+Medical Management
+
+•Correct thyroid dysfunction •Work with endocrinologist •Treat the TED •Ocular lubricants •Topical steroids and/or antibiotics •TEPEZZA
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy
+
+Thyroid Eye Disease
+
+73
+
+Medical Management •Treating the TED (continued) •Systemic Steroids mainstay treatment for moderate to severe disease (severe corneal involvement)
+
+• Oral prednisolone 60 – 80 mg/day • Tapered •IV methylprednisolone reserved for compressive optic neuropathy
+
+Duane’s Ophthalomology – Chapter 36 – Thyroid Orbitopathy Kanski’s Clinical Ophthalmology. 2016. Ch 3
+
+Thyroid Eye Disease
+
+74
+
+•Surgical Management •Surgical decompression •One or two holes made in orbit bones • Most common: medial wall and floor •Surgical treatment of EOM abnormalities when stable •Radiation Management
+
+Thyroid Eye Disease
+
+75
+
+
+## Page 26
+
+Thyroid Eye Disease 26
+
+76
+
+CLINICAL COURSE •Variable •Ocular involvement inevitable •Intermittent •Proptosis not necessarily affected by thyroid TX
+
+•Onset  remission ~ 6 months to 3 years
+
+77
+
+THANK YOU!
+
+78
+

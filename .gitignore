@@ -9,5 +9,8 @@
 ocular/source/Clinical Anatomy and Physiology of the Visual System.Fourth Edition.*
 ocular/assets/img/source/
 
+# Ocular disease: raw images extracted from the lecture PDFs (named crops in assets/img/ are kept)
+ocular-disease/assets/img/source/
+
 # macOS folder metadata
 .DS_Store
